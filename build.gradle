@@ -39,10 +39,17 @@ dependencies {
 
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+  testImplementation("org.junit.jupiter:junit-jupiter-params:${junitVersion}")
 }
 
 test {
-useJUnitPlatform()}
+  useJUnitPlatform()
+  jvmArgs += [
+          '--module-path', classpath.asPath,
+          '--add-modules', 'javafx.controls,javafx.fxml',
+          '--add-reads', 'your.module.name=org.junit.jupiter.api'
+  ]
+}
 
 jlink {
   imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
