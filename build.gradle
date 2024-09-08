@@ -6,59 +6,75 @@ plugins {
   id 'org.beryx.jlink' version '2.25.0'
 }
 
-group 'com.sdm'
-version '1.0-SNAPSHOT'
+group = 'com.sdm'
+version = '1.0-SNAPSHOT'
 
 repositories {
   mavenCentral()
 }
 
+// Estrazione delle versioni in variabili
 ext {
   junitVersion = '5.11.0'
+  javafxVersion = '21-ea+24'
+  controlsfxVersion = '11.1.2'
 }
 
-sourceCompatibility = '21'
-targetCompatibility = '21'
-
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
   options.encoding = 'UTF-8'
 }
 
 application {
-  mainModule = 'com.sdm.snakesdm24'
-  mainClass = 'com.sdm.snakesdm24.HelloApplication'
+  // Definizione del main module e della main class
+  mainModule = 'com.sdm.snake'
+  mainClass = 'com.sdm.snake.HelloApplication'
+}
+
+java {
+  sourceCompatibility = JavaVersion.VERSION_22
+  targetCompatibility = JavaVersion.VERSION_22
 }
 
 javafx {
-  version = '21-ea+24'
+  // Uso della variabile per la versione di JavaFX
+  version = javafxVersion
   modules = ['javafx.controls', 'javafx.fxml']
 }
 
 dependencies {
-  implementation('org.controlsfx:controlsfx:11.1.2')
+  // Uso della variabile per la versione di ControlsFX
+  implementation("org.controlsfx:controlsfx:${controlsfxVersion}")
 
+  // Dipendenze JUnit
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
   testImplementation("org.junit.jupiter:junit-jupiter-params:${junitVersion}")
 }
 
 test {
+  // Configurazione per usare JUnit Platform
   useJUnitPlatform()
+
+  // JVM arguments per i test con aggiunta di moduli JavaFX e lettura di moduli necessari
   jvmArgs += [
           '--module-path', classpath.asPath,
           '--add-modules', 'javafx.controls,javafx.fxml',
-          '--add-reads', 'your.module.name=org.junit.jupiter.api'
+          '--add-reads', 'com.sdm.snake=org.junit.jupiter.api'
   ]
 }
 
 jlink {
-  imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
+  // Uso di layout.buildDirectory.file() invece di buildDir
+  imageZip = layout.buildDirectory.file("distributions/app-${javafx.platform.classifier}.zip").get().asFile
   options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+
+  // Definizione del launcher
   launcher {
     name = 'app'
   }
 }
 
-jlinkZip {
+tasks.named('jlinkZip') {
   group = 'distribution'
 }
+
