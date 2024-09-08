@@ -21,15 +21,20 @@ public class SnakeTest {
     @Test
     void checkGrowthOfTheSnake() {
         Snake snake = new Snake();
-        snake.grow(Direction.UP);
+        snake.grow();
         Assertions.assertEquals(2,snake.getSize());
     }
 
     @ParameterizedTest
-    @EnumSource(value=Direction.class) //passing all 4 directions
+    @EnumSource(value = Direction.class) //passing all 4 directions
     void checkGrowthDirection(Direction direction) {
         Snake snake = new Snake();
-        snake.grow(direction);
+        //you can't change direction from UP to DOWN (the default direction is UP) so I change it to LEFT then DOWN
+        if(direction == Direction.DOWN) {
+            snake.setDirection(Direction.LEFT);
+        }
+        snake.setDirection(direction);
+        snake.grow();
         switch (direction) {
             case UP ->Assertions.assertEquals(1,snake.getHeadYCoordinate());
             case DOWN ->Assertions.assertEquals(-1,snake.getHeadYCoordinate());
@@ -51,5 +56,21 @@ public class SnakeTest {
         Assertions.assertEquals(0,snake.getHeadYCoordinate());
     }
 
-
+    @ParameterizedTest
+    @EnumSource(value = Direction.class) //passing all 4 directions
+    void checkMoveDirection(Direction direction) {
+        Snake snake = new Snake();
+        //you can't change direction from UP to DOWN (the default direction is UP) so I change it to LEFT then DOWN
+        if(direction == Direction.DOWN) {
+            snake.setDirection(Direction.LEFT);
+        }
+        snake.setDirection(direction);
+        snake.move();
+        switch (direction) {
+            case UP ->Assertions.assertEquals(1,snake.getHeadYCoordinate());
+            case DOWN ->Assertions.assertEquals(-1,snake.getHeadYCoordinate());
+            case LEFT ->Assertions.assertEquals(-1,snake.getHeadXCoordinate());
+            case RIGHT ->Assertions.assertEquals(1,snake.getHeadXCoordinate());
+        }
+    }
 }
