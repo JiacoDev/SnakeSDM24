@@ -1,4 +1,4 @@
-package com.sdm.snakesdm24;
+package com.sdm.snake;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -72,5 +72,12 @@ public class SnakeTest {
             case LEFT ->Assertions.assertEquals(-1,snake.getHeadXCoordinate());
             case RIGHT ->Assertions.assertEquals(1,snake.getHeadXCoordinate());
         }
+    }
+
+    @Test
+    void checkReverseMoveDirection() {
+        Snake snake = new Snake();
+        snake.setDirection(Direction.DOWN);
+        Assertions.assertEquals(Direction.UP,snake.getDirection());
     }
 }

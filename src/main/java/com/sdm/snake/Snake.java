@@ -1,11 +1,11 @@
-package com.sdm.snakesdm24;
+package com.sdm.snake;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Snake {
 
-    private List<BodyElement> snakeBody = new ArrayList<>();
+    final private List<BodyElement> snakeBody = new ArrayList<>();
     private Direction currentDirection;
 
     /**
@@ -55,7 +55,7 @@ public class Snake {
      * @return the X coordinate of the snake's head.
      */
     public int getHeadXCoordinate() {
-        return snakeBody.get(0).posX();
+        return snakeBody.getFirst().posX();
     }
 
     /**
@@ -64,7 +64,7 @@ public class Snake {
      * @return the Y coordinate of the snake's head.
      */
     public int getHeadYCoordinate(){
-        return snakeBody.get(0).posY();
+        return snakeBody.getFirst().posY();
     }
 
     /**
@@ -84,10 +84,19 @@ public class Snake {
     }
 
     /**
+     * Returns the current direction of the snake.
+     *
+     * @return the current direction of the snake
+     */
+    public Direction getDirection() {
+        return currentDirection;
+    }
+
+    /**
      * Moves the snake in the current direction by shifting the head to a new position
      * and updating the body. The current head becomes part of the body, a new head
      * is added in the direction of movement, and the last element of the tail is removed.
-     *
+     * <p>
      * This method only updates the snake's position and does not handle collisions.
      */
     public void move() {
@@ -102,10 +111,10 @@ public class Snake {
             case LEFT -> newX--;
             case RIGHT -> newX++;
         }
-        //we remove the last element of the list and we add a head as the first element
+        //we remove the last element of the list, and we add a head as the first element
         snakeBody.set(0, new BodyElement(oldX, oldY, BodyType.TAIL));
-        snakeBody.add(0, new BodyElement(newX, newY, BodyType.HEAD));
-        snakeBody.remove(snakeBody.size() - 1);
+        snakeBody.addFirst(new BodyElement(newX, newY, BodyType.HEAD));
+        snakeBody.removeLast();
     }
 
     /**
@@ -127,7 +136,7 @@ public class Snake {
 
         // Add the new head and update the old head to a tail part
         snakeBody.set(0, new BodyElement(oldX, oldY, BodyType.TAIL));
-        snakeBody.add(0, new BodyElement(newX, newY, BodyType.HEAD));
+        snakeBody.addFirst(new BodyElement(newX, newY, BodyType.HEAD));
     }
 
 }

@@ -1,4 +1,4 @@
-package com.sdm.snakesdm24;
+package com.sdm.snake;
 
 public record BodyElement(int posX, int posY, BodyType type) {
     public BodyElement(int posX, int posY, BodyType type) {

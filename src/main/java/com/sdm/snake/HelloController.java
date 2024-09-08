@@ -1,4 +1,4 @@
-package com.sdm.snakesdm24;
+package com.sdm.snake;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
