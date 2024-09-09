@@ -9,16 +9,6 @@ public class Snake {
     private Direction currentDirection;
 
     /**
-     * Constructs a {@code Snake} with the default starting position.
-     * The snake's head is placed at coordinates (0, 0), and the snake starts aligned north, moving upwards.
-     * The snake's initial length is 1.
-     */
-    public Snake() {
-        snakeBody.add(new BodyElement(0, 0, BodyType.HEAD));
-        currentDirection = Direction.UP;
-    }
-
-    /**
      * Constructs a {@code Snake} with the head at the specified x and y coordinates and the provided length.
      * The snake starts aligned north and moves upwards.
      *
@@ -66,6 +56,26 @@ public class Snake {
     public int getHeadYCoordinate(){
         return snakeBody.getFirst().posY();
     }
+
+    /**
+     * Returns the X coordinate of the snake's tail at a given position.
+     *
+     * @param position the position of the snake's tail segment to retrieve the X coordinate for.
+     *                 Must be a valid index within the snakeBody list.
+     * @return the X coordinate (posX) of the snake's tail segment at the specified position.
+     * @throws IndexOutOfBoundsException if the specified position is out of bounds.
+     */
+    public int getTailXCoordinate(int position) { return snakeBody.get(position).posX(); }
+
+    /**
+     * Returns the Y coordinate of the snake's tail at a given position.
+     *
+     * @param position the position of the snake's tail segment to retrieve the Y coordinate for.
+     *                 Must be a valid index within the snakeBody list.
+     * @return the Y coordinate (posY) of the snake's tail segment at the specified position.
+     * @throws IndexOutOfBoundsException if the specified position is out of bounds.
+     */
+    public int getTailYCoordinate(int position) { return snakeBody.get(position).posY(); }
 
     /**
      * Updates the current direction of the snake.
@@ -133,11 +143,9 @@ public class Snake {
             case LEFT -> newX--;
             case RIGHT -> newX++;
         }
-
         // Add the new head and update the old head to a tail part
         snakeBody.set(0, new BodyElement(oldX, oldY, BodyType.TAIL));
         snakeBody.addFirst(new BodyElement(newX, newY, BodyType.HEAD));
     }
-
 }
 
