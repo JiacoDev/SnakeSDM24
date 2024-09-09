@@ -1,4 +1,4 @@
-package com.sdm.snake;
+package com.sdm;
 
 public class Board {
     final private int width;

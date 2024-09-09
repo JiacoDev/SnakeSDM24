@@ -1,4 +1,4 @@
-package com.sdm.snake;
+package com.sdm;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

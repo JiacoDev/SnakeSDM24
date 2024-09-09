@@ -1,5 +1,7 @@
-package com.sdm.snake;
+package com.sdm;
 
+import com.sdm.snake.Direction;
+import com.sdm.snake.Snake;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

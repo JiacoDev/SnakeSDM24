@@ -1,4 +1,4 @@
-package com.sdm.snake;
+package com.sdm.snake.body;
 
 public enum BodyType {
     HEAD,TAIL

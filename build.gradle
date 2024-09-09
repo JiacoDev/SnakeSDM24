@@ -26,8 +26,8 @@ tasks.withType(JavaCompile).configureEach {
 
 application {
   // Definizione del main module e della main class
-  mainModule = 'com.sdm.snake'
-  mainClass = 'com.sdm.snake.HelloApplication'
+  mainModule = 'com.sdm'
+  mainClass = 'com.sdm.HelloApplication'
 }
 
 java {
@@ -59,7 +59,7 @@ test {
   jvmArgs += [
           '--module-path', classpath.asPath,
           '--add-modules', 'javafx.controls,javafx.fxml',
-          '--add-reads', 'com.sdm.snake=org.junit.jupiter.api'
+          '--add-reads', 'com.sdm=org.junit.jupiter.api'
   ]
 }
 

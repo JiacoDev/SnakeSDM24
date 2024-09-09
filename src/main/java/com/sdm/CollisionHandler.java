@@ -1,7 +1,9 @@
-package com.sdm.snake;
+package com.sdm;
 
 //Da decidere se fare refactoring in State altering Design pattern
 //Ulteriori refacoring necessari
+
+import com.sdm.snake.Snake;
 
 /**
  * Class responsible for handling collisions in the Snake game.
