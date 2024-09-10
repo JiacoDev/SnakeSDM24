@@ -36,8 +36,8 @@ public class CollisionHandler {
      * @return true if the snake has collided with its own body, false otherwise
      */
     private static boolean checkCollisionWithSnake(Snake snake) {
-        double headXCoordinate = snake.getHeadXCoordinate();
-        double headYCoordinate = snake.getHeadYCoordinate();
+        int headXCoordinate = snake.getHeadXCoordinate();
+        int headYCoordinate = snake.getHeadYCoordinate();
         for (int i = 1; i < snake.getSize(); i++) {
             if ((headXCoordinate == snake.getTailXCoordinate(i)) &&
                     (headYCoordinate == snake.getTailYCoordinate(i))) return true;

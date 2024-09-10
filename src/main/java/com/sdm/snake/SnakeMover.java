@@ -25,18 +25,18 @@ public class SnakeMover {
      *
      * @param direction the direction in which the snake should move.
      */
-    public void move(Direction direction, double deltaTime) {
+    public void move(Direction direction) {
         SnakeBody body = snake.getBody();
-        double oldX = body.getHeadXCoordinate();
-        double oldY = body.getHeadYCoordinate();
-        double newX = oldX;
-        double newY = oldY;
+        int oldX = body.getHeadXCoordinate();
+        int oldY = body.getHeadYCoordinate();
+        int newX = oldX;
+        int newY = oldY;
 
         switch (direction) {
-            case UP -> newY += deltaTime;
-            case DOWN -> newY -= deltaTime;
-            case LEFT -> newX -= deltaTime;
-            case RIGHT -> newX += deltaTime;
+            case UP -> newY++;
+            case DOWN -> newY--;
+            case LEFT -> newX--;
+            case RIGHT -> newX++;
         }
 
         body.setNewHead(newX,newY);
@@ -51,10 +51,10 @@ public class SnakeMover {
      */
     public void grow(Direction direction) {
         SnakeBody body = snake.getBody();
-        double oldX = body.getHeadXCoordinate();
-        double oldY = body.getHeadYCoordinate();
-        double newX = oldX;
-        double newY = oldY;
+        int oldX = body.getHeadXCoordinate();
+        int oldY = body.getHeadYCoordinate();
+        int newX = oldX;
+        int newY = oldY;
 
         switch (direction) {
             case UP -> newY++;

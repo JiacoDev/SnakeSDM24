@@ -10,8 +10,8 @@ import java.io.IOException;
 
 public class SnakeGameApplicationInitializer extends Application {
 
-    private final double snakeStartingXCoordinate = 0;
-    private final double snakeStartingYCoordinate = 0;
+    private final int snakeStartingXCoordinate = 0;
+    private final int snakeStartingYCoordinate = 0;
     private final int snakeStartingLength = 2;
 
     private final int boardStartingWidth = 64;

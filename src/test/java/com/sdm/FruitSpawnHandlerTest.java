@@ -24,7 +24,7 @@ class FruitSpawnHandlerTest {
             FruitSpawnHandler.randomFruitMove(snake,fruit,board);
             for (int j = 0; j < STARTING_LENGTH; j++) {
                 Assertions.assertEquals(GameState.NORMAL,CollisionHandler.checkCollision(snake,fruit,board));
-                if(snake.getTailXCoordinate(j) == fruit.getPosX() && snake.getTailYCoordinate(j) == fruit.getPosY()) Assertions.fail();
+                if(snake.getTailXCoordinate(j) == fruit.getPosX() && snake.getTailYCoordinate(j) == fruit.getPosY()) Assertions.fail("SnakeX: " + snake.getTailXCoordinate(j) + " SnakeY: " + snake.getTailYCoordinate(j) + "\nFruitX: " + fruit.getPosX() + " FruitY: " + fruit.getPosY());
             }
         }
     }

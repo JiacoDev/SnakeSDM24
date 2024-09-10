@@ -21,7 +21,7 @@ public class Snake {
      * @param length    the initial length of the snake; must be greater than 0.
      * @throws IllegalArgumentException if the length is less than or equal to 0.
      */
-    public Snake(double startingX, double startingY, int length) {
+    public Snake(int startingX, int startingY, int length) {
         this.body = new SnakeBody(startingX, startingY, length);
         this.direction = new SnakeDirection(Direction.UP);
         this.mover = new SnakeMover(this);
@@ -41,7 +41,7 @@ public class Snake {
      *
      * @return the X coordinate of the head.
      */
-    public double getHeadXCoordinate() {
+    public int getHeadXCoordinate() {
         return body.getHeadXCoordinate();
     }
 
@@ -50,7 +50,7 @@ public class Snake {
      *
      * @return the Y coordinate of the head.
      */
-    public double getHeadYCoordinate() {
+    public int getHeadYCoordinate() {
         return body.getHeadYCoordinate();
     }
 
@@ -60,7 +60,7 @@ public class Snake {
      * @param position the position of the body segment to retrieve.
      * @return the X coordinate of the specified body segment.
      */
-    public double getTailXCoordinate(int position) {
+    public int getTailXCoordinate(int position) {
         return body.getTailXCoordinate(position);
     }
 
@@ -70,7 +70,7 @@ public class Snake {
      * @param position the position of the body segment to retrieve.
      * @return the Y coordinate of the specified body segment.
      */
-    public double getTailYCoordinate(int position) {
+    public int getTailYCoordinate(int position) {
         return body.getTailYCoordinate(position);
     }
 
@@ -96,8 +96,8 @@ public class Snake {
      * Moves the snake in its current direction, updating the body accordingly.
      * The last body segment is removed and a new head is added in the new direction.
      */
-    public void move(double deltaTime) {
-        mover.move(direction.getCurrentDirection(), deltaTime);
+    public void move() {
+        mover.move(direction.getCurrentDirection());
     }
 
     /**
