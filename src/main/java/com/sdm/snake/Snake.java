@@ -41,7 +41,7 @@ public class Snake {
      *
      * @return the X coordinate of the head.
      */
-    public int getHeadXCoordinate() {
+    public double getHeadXCoordinate() {
         return body.getHeadXCoordinate();
     }
 
@@ -50,7 +50,7 @@ public class Snake {
      *
      * @return the Y coordinate of the head.
      */
-    public int getHeadYCoordinate() {
+    public double getHeadYCoordinate() {
         return body.getHeadYCoordinate();
     }
 
@@ -60,7 +60,7 @@ public class Snake {
      * @param position the position of the body segment to retrieve.
      * @return the X coordinate of the specified body segment.
      */
-    public int getTailXCoordinate(int position) {
+    public double getTailXCoordinate(int position) {
         return body.getTailXCoordinate(position);
     }
 
@@ -70,7 +70,7 @@ public class Snake {
      * @param position the position of the body segment to retrieve.
      * @return the Y coordinate of the specified body segment.
      */
-    public int getTailYCoordinate(int position) {
+    public double getTailYCoordinate(int position) {
         return body.getTailYCoordinate(position);
     }
 
@@ -96,8 +96,8 @@ public class Snake {
      * Moves the snake in its current direction, updating the body accordingly.
      * The last body segment is removed and a new head is added in the new direction.
      */
-    public void move() {
-        mover.move(direction.getCurrentDirection());
+    public void move(double deltaTime) {
+        mover.move(direction.getCurrentDirection(), deltaTime);
     }
 
     /**

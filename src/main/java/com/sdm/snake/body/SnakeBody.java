@@ -36,7 +36,7 @@ public class SnakeBody {
      *
      * @return the X coordinate of the head of the snake.
      */
-    public int getHeadXCoordinate() {
+    public double getHeadXCoordinate() {
         return bodyElements.getFirst().posX();
     }
 
@@ -45,7 +45,7 @@ public class SnakeBody {
      *
      * @return the Y coordinate of the head of the snake.
      */
-    public int getHeadYCoordinate() {
+    public double getHeadYCoordinate() {
         return bodyElements.getFirst().posY();
     }
 
@@ -55,7 +55,7 @@ public class SnakeBody {
      * @param position the index of the body element.
      * @return the X coordinate of the tail element at the given position.
      */
-    public int getTailXCoordinate(int position) {
+    public double getTailXCoordinate(int position) {
         return bodyElements.get(position).posX();
     }
 
@@ -65,7 +65,7 @@ public class SnakeBody {
      * @param position the index of the body element.
      * @return the Y coordinate of the tail element at the given position.
      */
-    public int getTailYCoordinate(int position) {
+    public double getTailYCoordinate(int position) {
         return bodyElements.get(position).posY();
     }
 
@@ -76,7 +76,7 @@ public class SnakeBody {
      * @param newX the X coordinate for the new head.
      * @param newY the Y coordinate for the new head.
      */
-    public void setNewHead(int newX, int newY) {
+    public void setNewHead(double newX, double newY) {
         bodyElements.addFirst(new BodyElement(newX, newY, BodyType.HEAD));
         bodyElements.set(1, new BodyElement(bodyElements.get(1).posX(), bodyElements.get(1).posY(), BodyType.TAIL));
     }
