@@ -8,7 +8,7 @@ import javafx.application.Platform;
 
 public class GameLoop extends AnimationTimer {
 
-    private final int GAME_SPEED = 1;
+    private final int GAME_SPEED = 2;
 
     private Snake snake;
     private Board board;
@@ -38,7 +38,10 @@ public class GameLoop extends AnimationTimer {
     private void updateGame() {
         switch (CollisionHandler.checkCollision(snake, fruit, board)) {
             case NORMAL -> snake.move();
-            case EAT -> snake.grow();
+            case EAT -> {
+                snake.grow();
+                FruitSpawnHandler.randomFruitMove(snake, fruit, board);
+            }
             case SNAKE_COLLISION -> Platform.exit();
             case WALL_COLLISION -> Platform.exit();
         }

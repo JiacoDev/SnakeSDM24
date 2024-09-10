@@ -12,8 +12,8 @@ public class FruitSpawnHandler {
         Random rand = new Random();
         rand.setSeed(System.currentTimeMillis());
         do {
-            fruit.setPosX(rand.nextInt(0,board.getWidth()+1));
-            fruit.setPosY(rand.nextInt(0,board.getHeight()+1));
+            fruit.setPosX(rand.nextInt(1,board.getWidth()));
+            fruit.setPosY(rand.nextInt(1,board.getHeight()));
         } while ( IntStream.range(0, snake.getSize()).anyMatch(
                 j -> snake.getTailXCoordinate(j) == fruit.getPosX() &&
                         snake.getTailYCoordinate(j) == fruit.getPosY()));
