@@ -21,7 +21,7 @@ public class Snake {
      * @param length    the initial length of the snake; must be greater than 0.
      * @throws IllegalArgumentException if the length is less than or equal to 0.
      */
-    public Snake(int startingX, int startingY, int length) {
+    public Snake(double startingX, double startingY, int length) {
         this.body = new SnakeBody(startingX, startingY, length);
         this.direction = new SnakeDirection(Direction.UP);
         this.mover = new SnakeMover(this);

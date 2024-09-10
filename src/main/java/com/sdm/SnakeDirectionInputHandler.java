@@ -4,10 +4,10 @@ import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 import com.sdm.snake.*;
 
-public class KeyboardPressHandler implements EventHandler<KeyEvent> {
+public class SnakeDirectionInputHandler implements EventHandler<KeyEvent> {
     private final Snake snake;
 
-    public KeyboardPressHandler(Snake snake) {
+    public SnakeDirectionInputHandler(Snake snake) {
         this.snake = snake;
     }
 

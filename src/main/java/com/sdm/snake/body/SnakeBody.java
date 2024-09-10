@@ -21,7 +21,7 @@ public class SnakeBody {
      * @param length    the initial length of the snake's body.
      * @throws IllegalArgumentException if the length is less than or equal to 0.
      */
-    public SnakeBody(int startingX, int startingY, int length) {
+    public SnakeBody(double startingX, double startingY, int length) {
         if (length <= 0) {
             throw new IllegalArgumentException("Length must be greater than 0");
         }
