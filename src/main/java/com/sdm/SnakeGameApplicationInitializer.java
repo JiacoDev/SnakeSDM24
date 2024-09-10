@@ -10,15 +10,15 @@ import java.io.IOException;
 
 public class SnakeGameApplicationInitializer extends Application {
 
-    private final int snakeStartingXCoordinate = 0;
-    private final int snakeStartingYCoordinate = 0;
-    private final int snakeStartingLength = 2;
+    private final int snakeStartingXCoordinate = 5;
+    private final int snakeStartingYCoordinate = 5;
+    private final int snakeStartingLength = 3;
 
-    private final int boardStartingWidth = 64;
-    private final int boardStartingHeight = 64;
+    private final int boardStartingWidth = 10;
+    private final int boardStartingHeight = 10;
 
-    private final int fruitStartingXCoordinate = 0;
-    private final int fruitStartingYCoordinate = 0;
+    private final int fruitStartingXCoordinate = 1;
+    private final int fruitStartingYCoordinate = 1;
 
     @Override
     public void start(Stage stage) throws IOException {

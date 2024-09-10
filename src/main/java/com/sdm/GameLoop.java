@@ -1,9 +1,14 @@
 package com.sdm;
 
 import com.sdm.snake.Snake;
+import com.sdm.CollisionHandler;
+import com.sdm.snake.body.BodyElement;
 import javafx.animation.AnimationTimer;
+import javafx.application.Platform;
 
 public class GameLoop extends AnimationTimer {
+
+    private final int GAME_SPEED = 1;
 
     private Snake snake;
     private Board board;
@@ -21,8 +26,8 @@ public class GameLoop extends AnimationTimer {
     public void handle(long now) {
         if (lastUpdateTime > 0) {
             double deltaTime = (now - lastUpdateTime) / 1_000_000_000.0;
-            totalGameTime += deltaTime;
-            if(totalGameTime >= 1.0) {
+            totalGameTime += deltaTime * GAME_SPEED;
+            if (totalGameTime >= 1.0) {
                 updateGame();
                 totalGameTime -= 1;
             }
@@ -31,7 +36,56 @@ public class GameLoop extends AnimationTimer {
     }
 
     private void updateGame() {
-        System.out.println("Snake position: " + snake.getHeadXCoordinate() + " " + snake.getHeadYCoordinate() + " Direction: " + snake.getDirection());
-        snake.move();
+        switch (CollisionHandler.checkCollision(snake, fruit, board)) {
+            case NORMAL -> snake.move();
+            case EAT -> snake.grow();
+            case SNAKE_COLLISION -> Platform.exit();
+            case WALL_COLLISION -> Platform.exit();
+        }
+        drawGameOnCLI();
+    }
+
+    //Funzione temporanea fino a quando non c'è l'interfaccia grafica
+    public void drawGameOnCLI() {
+    // Cornice superiore
+        System.out.print("\n\n\n\n\n");
+        System.out.println("  " + "-".repeat(board.getWidth() + 2));  // Stampa la linea superiore con una cornice di larghezza maggiore
+
+    for (int j = board.getHeight() - 1; j > 0; j--) {
+        System.out.print(" |");  // Aggiungi il bordo laterale sinistro
+        for (int i = 1; i < board.getWidth(); i++) {
+            // Stampa la testa dello snake
+            if (snake.getHeadXCoordinate() == i && snake.getHeadYCoordinate() == j) {
+                System.out.print("X");
+                continue;  // Evita di stampare altro per la cella della testa
+            }
+
+            // Stampa il corpo dello snake
+            boolean isSnakeBody = false;
+            for (int k = 1; k < snake.getSize(); k++) {
+                int elementX = snake.getTailXCoordinate(k);
+                int elementY = snake.getTailYCoordinate(k);
+                if (elementX == i && elementY == j) {
+                    System.out.print("O");
+                    isSnakeBody = true;
+                    break;
+                }
+            }
+            if (isSnakeBody) continue;  // Evita di stampare altro per la cella del corpo
+
+            // Stampa il frutto
+            if (fruit.getPosX() == i && fruit.getPosY() == j) {
+                System.out.print("*");
+            }
+            // Spazio vuoto
+            else {
+                System.out.print(".");
+            }
+        }
+        System.out.println("|");  // Aggiungi il bordo laterale destro e vai a capo
+    }
+
+    // Cornice inferiore
+    System.out.println("  " + "-".repeat(board.getWidth() + 2));  // Stampa la linea inferiore
     }
 }
