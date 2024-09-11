@@ -35,6 +35,7 @@ public class SnakeTest {
         //you can't change direction from UP to DOWN (the default direction is UP) so I change it to LEFT then DOWN
         if(direction == Direction.DOWN) {
             snake.setDirection(Direction.LEFT);
+            snake.move();
         }
         snake.setDirection(direction);
         snake.grow();
@@ -66,6 +67,7 @@ public class SnakeTest {
         //you can't change direction from UP to DOWN (the default direction is UP) so I change it to LEFT then DOWN
         if(direction == Direction.DOWN) {
             snake.setDirection(Direction.LEFT);
+            snake.move();
         }
         snake.setDirection(direction);
         snake.move();
