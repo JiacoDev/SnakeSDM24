@@ -1,25 +1,28 @@
 package com.sdm;
 
 import com.sdm.snake.Snake;
-import com.sdm.CollisionHandler;
-import com.sdm.snake.body.BodyElement;
+//import com.sdm.CollisionHandler;
+//import com.sdm.snake.body.BodyElement;
 import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
+import javafx.scene.Scene;
 
 public class GameLoop extends AnimationTimer {
 
-    private final int GAME_SPEED = 2;
+    private final int GAME_SPEED = 4;
 
     private Snake snake;
     private Board board;
     private Fruit fruit;
+    private Scene scene;
     private long lastUpdateTime = 0;
     private double totalGameTime = 0;
 
-    public GameLoop(Snake initSnake, Board initBoard, Fruit initFruit) {
+    public GameLoop(Snake initSnake, Board initBoard, Fruit initFruit, Scene initScene) {
         snake = initSnake;
         board = initBoard;
         fruit = initFruit;
+        scene = initScene;
     }
 
     @Override
@@ -45,7 +48,8 @@ public class GameLoop extends AnimationTimer {
             case SNAKE_COLLISION -> Platform.exit();
             case WALL_COLLISION -> Platform.exit();
         }
-        drawGameOnCLI();
+        scene.setRoot(Graphic.draw(snake, fruit, board));
+        //drawGameOnCLI();
     }
 
     //Funzione temporanea fino a quando non c'è l'interfaccia grafica
