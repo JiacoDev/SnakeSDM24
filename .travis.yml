@@ -1,9 +1,6 @@
 language: java
 jdk:
   - openjdk22
-before_install:
-  - sudo apt-get update
-  - sudo apt-get install openjdk-22-jdk
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
