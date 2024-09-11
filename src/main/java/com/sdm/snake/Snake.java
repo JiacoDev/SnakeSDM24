@@ -97,7 +97,7 @@ public class Snake {
      * The last body segment is removed and a new head is added in the new direction.
      */
     public void move() {
-        mover.move(direction.getCurrentDirection());
+        mover.move(direction.getCurrentDirection(),direction);
     }
 
     /**
@@ -105,7 +105,7 @@ public class Snake {
      * without removing the last body segment.
      */
     public void grow() {
-        mover.grow(direction.getCurrentDirection());
+        mover.grow(direction.getCurrentDirection(),direction);
     }
 
     /**

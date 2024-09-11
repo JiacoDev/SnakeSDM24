@@ -6,6 +6,7 @@ package com.sdm.snake;
  */
 public class SnakeDirection {
     private Direction currentDirection;
+    private Direction lastDirectionBeforeMove;
 
     /**
      * Constructs a {@code SnakeDirection} with an initial direction.
@@ -14,6 +15,16 @@ public class SnakeDirection {
      */
     public SnakeDirection(Direction initialDirection) {
         this.currentDirection = initialDirection;
+        this.lastDirectionBeforeMove = initialDirection;
+    }
+
+    /**
+     * Sets the last direction of the snake.
+     * This method is intended to be used only for the move() and grow() methods
+     * @param lastDirectionBeforeMove the last direction of the snake
+     */
+    protected void setLastDirectionBeforeMove(Direction lastDirectionBeforeMove) {
+        this.lastDirectionBeforeMove = lastDirectionBeforeMove;
     }
 
     /**
@@ -32,10 +43,10 @@ public class SnakeDirection {
      * @param newDirection the new direction for the snake to move in.
      */
     public void setDirection(Direction newDirection) {
-        if ((currentDirection == Direction.UP && newDirection != Direction.DOWN) ||
-                (currentDirection == Direction.DOWN && newDirection != Direction.UP) ||
-                (currentDirection == Direction.LEFT && newDirection != Direction.RIGHT) ||
-                (currentDirection == Direction.RIGHT && newDirection != Direction.LEFT)) {
+        if ((lastDirectionBeforeMove == Direction.UP && newDirection != Direction.DOWN) ||
+                (lastDirectionBeforeMove == Direction.DOWN && newDirection != Direction.UP) ||
+                (lastDirectionBeforeMove == Direction.LEFT && newDirection != Direction.RIGHT) ||
+                (lastDirectionBeforeMove == Direction.RIGHT && newDirection != Direction.LEFT)) {
             this.currentDirection = newDirection;
         }
     }
