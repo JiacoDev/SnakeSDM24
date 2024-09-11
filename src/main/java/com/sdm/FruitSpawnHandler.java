@@ -6,11 +6,13 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 public class FruitSpawnHandler {
-    
+    private static Random rand = new Random(System.currentTimeMillis());
+
+    public static void setRandom(Random random) {
+        rand = random;
+    }
 
     public static void randomFruitMove(Snake snake, Fruit fruit, Board board) {
-        Random rand = new Random();
-        rand.setSeed(System.currentTimeMillis());
         do {
             fruit.setPosX(rand.nextInt(1,board.getWidth()));
             fruit.setPosY(rand.nextInt(1,board.getHeight()));
