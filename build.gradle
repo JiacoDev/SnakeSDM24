@@ -49,18 +49,21 @@ dependencies {
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
   testImplementation("org.junit.jupiter:junit-jupiter-params:${junitVersion}")
+
+  testImplementation 'org.mockito:mockito-core:5.13.0'
 }
 
 test {
   // Configurazione per usare JUnit Platform
   useJUnitPlatform()
-
   // JVM arguments per i test con aggiunta di moduli JavaFX e lettura di moduli necessari
+  jvmArgs("-XX:+EnableDynamicAgentLoading")
   jvmArgs += [
           '--module-path', classpath.asPath,
           '--add-modules', 'javafx.controls,javafx.fxml',
           '--add-reads', 'com.sdm=org.junit.jupiter.api'
   ]
+
 }
 
 jlink {

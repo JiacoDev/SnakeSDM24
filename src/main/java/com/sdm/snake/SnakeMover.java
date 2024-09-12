@@ -25,7 +25,7 @@ public class SnakeMover {
      *
      * @param direction the direction in which the snake should move.
      */
-    public void move(Direction direction) {
+    public void move(Direction direction,SnakeDirection snakeDirection) {
         SnakeBody body = snake.getBody();
         int oldX = body.getHeadXCoordinate();
         int oldY = body.getHeadYCoordinate();
@@ -41,6 +41,7 @@ public class SnakeMover {
 
         body.setNewHead(newX,newY);
         body.removeLastElement();
+        snakeDirection.setLastDirectionBeforeMove(direction);
     }
 
     /**
@@ -49,7 +50,7 @@ public class SnakeMover {
      *
      * @param direction the direction in which the snake should grow.
      */
-    public void grow(Direction direction) {
+    public void grow(Direction direction,SnakeDirection snakeDirection) {
         SnakeBody body = snake.getBody();
         int oldX = body.getHeadXCoordinate();
         int oldY = body.getHeadYCoordinate();
@@ -64,5 +65,6 @@ public class SnakeMover {
         }
 
         body.setNewHead(newX, newY);
+        snakeDirection.setLastDirectionBeforeMove(direction);
     }
 }
