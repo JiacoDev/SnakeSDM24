@@ -11,13 +11,16 @@ The objective of this project was to create a game while practicing what we've l
 
 ### Project Structure
 
--'resources' : Includes any external resources, such as images.
--'snake' : Manages anything from, game controls and menu, to the fruit spawns and collision.
--'test' : The word speaks for it's self, contains the tests we performed during development.
+- `resources` : Includes any external resources, such as images.
+- 
+- `snake` : Manages anything from, game controls and menu, to the fruit spawns and collision.
+- 
+- `test` : The word speaks for it's self, contains the tests we performed during development.
 
 ## Requirements
 
 - Java 11+ (or any compatible version)
+  
 - JavaFX SDK properly set up in your environment.
 
 ## Setting Up JavaFX
@@ -43,15 +46,21 @@ The goal of the game is to control the snake, eat food to grow, and avoid collis
 Controls:
 
 Move the Snake: Use the arrow keys to change the direction of the snake.
+
 -W Arrow: Move the snake up.
+
 -S Arrow: Move the snake down.
+
 -A Arrow: Move the snake left.
+
 -D Arrow: Move the snake right.
 
 -Eat Food: The snake grows in lenght each time it consumes food, and your score increases.
+
 -Avoid Collisions: If the snake collides with the edges of the screen or with its own body it's GAME OVER.
 
 ## License
+
 - This project is licensed under the MIT License. See the _license_ file for more details.
 
 
