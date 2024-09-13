@@ -32,7 +32,7 @@ public class GameLoop extends AnimationTimer {
             if (totalGameTime >= 1.0) {
                 updateGame();
                 //Draw func
-                scene.setRoot(Graphic.draw(snake, fruit, board));
+                scene.setRoot(Graphic.draw(snake, fruit, board, score));
                 totalGameTime -= 1;
             }
         }
@@ -47,8 +47,6 @@ public class GameLoop extends AnimationTimer {
                 score.addToScore(1);
                 FruitSpawnHandler.randomFruitMove(snake, fruit, board);
 
-                //temp print
-                System.out.println(score.getScore());
             }
             case SNAKE_COLLISION -> Platform.exit();
             case WALL_COLLISION -> Platform.exit();

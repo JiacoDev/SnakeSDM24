@@ -5,6 +5,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 
 public class Graphic {
 
@@ -13,7 +17,7 @@ public class Graphic {
     final static double SPACEy = 5;
     final static Color color = Color.BLACK;
 
-    public static Pane draw(Snake snake, Fruit fruit, Board board) {
+    public static Pane draw(Snake snake, Fruit fruit, Board board, Score score) {
         Pane pane = new Pane();
 
         Rectangle rectangle = new Rectangle();
@@ -97,6 +101,16 @@ public class Graphic {
 
             pane.getChildren().add(rectangle);
         }
+
+        Text text = new Text();
+        text.setText("SCORE: " + score.getScore());
+        text.setFill(color);
+        text.setOpacity(0.8);
+        text.setY((board.getHeight() + SPACEy + 1)*DIM);
+        text.setX((SPACEx)*DIM);
+        text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, DIM));
+        pane.getChildren().add(text);
+
 
         return pane;
     }
