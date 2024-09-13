@@ -24,7 +24,7 @@ public class Graphic {
 
         rectangle.setFill(color);
         rectangle.setWidth(DIM);
-        rectangle.setHeight(board.getHeight()*DIM);
+        rectangle.setHeight(board.height()*DIM);
         rectangle.setX((-1 + SPACEx)*DIM);
         rectangle.setY(SPACEy*DIM);
         rectangle.setOpacity(0.8);
@@ -35,8 +35,8 @@ public class Graphic {
 
         rectangle.setFill(color);
         rectangle.setWidth(DIM);
-        rectangle.setHeight(board.getHeight()*DIM);
-        rectangle.setX((board.getWidth()-1 + SPACEx)*DIM);
+        rectangle.setHeight(board.height()*DIM);
+        rectangle.setX((board.width()-1 + SPACEx)*DIM);
         rectangle.setY((-1 + SPACEy)*DIM);
         rectangle.setOpacity(0.8);
 
@@ -45,7 +45,7 @@ public class Graphic {
         rectangle = new Rectangle();
 
         rectangle.setFill(color);
-        rectangle.setWidth(board.getWidth()*DIM);
+        rectangle.setWidth(board.width()*DIM);
         rectangle.setHeight(DIM);
         rectangle.setX((-1 + SPACEx)*DIM);
         rectangle.setY((-1 + SPACEy)*DIM);
@@ -56,10 +56,10 @@ public class Graphic {
         rectangle = new Rectangle();
 
         rectangle.setFill(color);
-        rectangle.setWidth((board.getWidth())*DIM);
+        rectangle.setWidth((board.width())*DIM);
         rectangle.setHeight(DIM);
         rectangle.setX((SPACEx)*DIM);
-        rectangle.setY((board.getHeight() -1 + SPACEy)*DIM);
+        rectangle.setY((board.height() -1 + SPACEy)*DIM);
         rectangle.setOpacity(0.8);
 
         pane.getChildren().add(rectangle);
@@ -68,7 +68,7 @@ public class Graphic {
         circle.setRadius(DIM/3);
         circle.setFill(color);
         circle.setCenterX((fruit.getPosX() + SPACEx)*DIM - (DIM/2));
-        circle.setCenterY((board.getHeight() - fruit.getPosY() + SPACEy)*DIM + (DIM/2) - DIM);
+        circle.setCenterY((board.height() - fruit.getPosY() + SPACEy)*DIM + (DIM/2) - DIM);
         circle.setOpacity(0.8);
 
         pane.getChildren().add(circle);
@@ -79,7 +79,7 @@ public class Graphic {
         rectangle.setHeight(DIM);
         rectangle.setWidth(DIM);
         rectangle.setX((snake.getHeadXCoordinate() + SPACEx)*DIM - DIM);
-        rectangle.setY((board.getHeight() - snake.getHeadYCoordinate() + SPACEy)*DIM - DIM);
+        rectangle.setY((board.height() - snake.getHeadYCoordinate() + SPACEy)*DIM - DIM);
         rectangle.setArcWidth(10);
         rectangle.setArcHeight(10);
         rectangle.setOpacity(0.8);
@@ -94,7 +94,7 @@ public class Graphic {
             rectangle.setHeight(DIM);
             rectangle.setWidth(DIM);
             rectangle.setX((snake.getTailXCoordinate(i) + SPACEx)*DIM - DIM);
-            rectangle.setY(((board.getHeight() - snake.getTailYCoordinate(i))+ SPACEy)*DIM - DIM);
+            rectangle.setY(((board.height() - snake.getTailYCoordinate(i))+ SPACEy)*DIM - DIM);
             rectangle.setArcWidth(10);
             rectangle.setArcHeight(10);
             rectangle.setOpacity(0.8);
@@ -106,7 +106,7 @@ public class Graphic {
         text.setText("SCORE: " + score.getScore());
         text.setFill(color);
         text.setOpacity(0.8);
-        text.setY((board.getHeight() + SPACEy + 1)*DIM);
+        text.setY((board.height() + SPACEy + 1)*DIM);
         text.setX((SPACEx)*DIM);
         text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, DIM));
         pane.getChildren().add(text);

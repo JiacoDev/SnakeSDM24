@@ -65,9 +65,9 @@ public class CollisionHandler {
      * @return true if the snake has collided with a wall, false otherwise
      */
     private static boolean checkCollisionWithWall(Snake snake, Board board) {
-        return snake.getHeadXCoordinate() == board.getWidth() ||
+        return snake.getHeadXCoordinate() == board.width() ||
                 snake.getHeadXCoordinate() == 0 ||
-                snake.getHeadYCoordinate() == board.getHeight() ||
+                snake.getHeadYCoordinate() == board.height() ||
                 snake.getHeadYCoordinate() == 0;
     }
 }
