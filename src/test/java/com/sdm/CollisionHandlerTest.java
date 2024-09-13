@@ -91,7 +91,14 @@ class CollisionHandlerTest {
         Assertions.assertEquals(GameState.WALL_COLLISION,CollisionHandler.checkCollision(snake,fruit,board));
     }
 
+    @Test
+    void  checkNoCollision(){
+        Snake snake = new Snake(STARTING_X, STARTING_Y, STARTING_LENGTH);
+        Fruit fruit = new Fruit(STARTING_X,STARTING_Y+2);
+        Board board = new Board(BOARD_WIDTH,BOARD_HEIGHT);
 
+        Assertions.assertEquals(GameState.NORMAL,CollisionHandler.checkCollision(snake,fruit,board));
+    }
 
 
 
