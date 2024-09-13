@@ -32,13 +32,13 @@ If you're using an IDE like IntelliJ IDEA or Eclipse, add the JavaFX SDK as a pr
 
 If your IDE is properly configured with JavaFX, you can run the project directly from the IDE, alternatively:
 
-1. Clone the repository: git clone <da aggiungere URL>
+1. Clone the repository: git clone ---------------------
 
 2. Set Up JavaFX SDK: Ensure the JavaFX SDK is properly configured in your environment.
 
-3. Compile the Code Compile the source files, specifying the JavaFX SDK path: javac --module-path <da completare quando org>
+3. Compile the Code Compile the source files, specifying the JavaFX SDK path: javac --module-path -------------------
 
-4.Run the Game Execute the compiled application with the JavaFX module path: java --module-path <da finire una volta sistemato>
+4.Run the Game Execute the compiled application with the JavaFX module path: java --module-path ----------------------------
 
 ## Objective
 The goal of the game is to control the snake, eat food to grow, and avoid collisions with the screen edges or the snake’s own body. The longer the snake grows, the higher your score.
