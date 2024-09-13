@@ -40,7 +40,8 @@ public class SnakeGameApplicationInitializer extends Application {
         scene.addEventHandler(KeyEvent.KEY_PRESSED,  new SnakeDirectionInputHandler(startSnake));
 
         GameLoop gameLoop = new GameLoop(startSnake, startBoard, startFruit, scene);
-        gameLoop.start();
+        scene.setRoot(Menu.drawMenu(gameLoop));
+        //gameLoop.start();
     }
 
     public static void main(String[] args) {
