@@ -3,7 +3,9 @@
 ## Introduction
 
 This repository contains an implementation of the classic Snake game built using Java and JavaFX. 
+
 The goal is to control the snake, eat food to grow, and avoid collisions with the screen edges or the snake’s own body.
+
 The objective of this project was to create a game while practicing what we've learned during the Software Development Methods lectures such as: Continuous Integration (CI), applying automated testing and Test Driven Development (TDD) which are some of the principles for iterative code improvement.
 
 ## Gameplay
@@ -12,9 +14,9 @@ The objective of this project was to create a game while practicing what we've l
 ### Project Structure
 
 - `resources` : Includes any external resources, such as images.
-- 
+  
 - `snake` : Manages anything from, game controls and menu, to the fruit spawns and collision.
-- 
+  
 - `test` : The word speaks for it's self, contains the tests we performed during development.
 
 ## Requirements
@@ -63,7 +65,8 @@ Move the Snake: Use the arrow keys to change the direction of the snake.
 
 - This project is licensed under the MIT License. See the _license_ file for more details.
 
-
+## Authors
+---------------
 
 
 
