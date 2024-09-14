@@ -19,7 +19,7 @@ public class Graphic {
 
 
     final static double SPACEx = 2;
-    final static double SPACEy = 1.5;
+    final static double SPACEy = 1;
     final static Color color = Color.BLACK;
 
     public static Pane draw(Snake snake, Fruit fruit, Board board, Score score) {
