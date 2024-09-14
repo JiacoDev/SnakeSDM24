@@ -58,11 +58,11 @@ public class GameLoop extends AnimationTimer {
     public void drawGameOnCLI() {
     // Cornice superiore
         System.out.print("\n\n\n\n\n");
-        System.out.println("  " + "-".repeat(board.width() + 2));  // Stampa la linea superiore con una cornice di larghezza maggiore
+        System.out.println("  " + "-".repeat(board.getWidth() + 2));  // Stampa la linea superiore con una cornice di larghezza maggiore
 
-    for (int j = board.height() - 1; j > 0; j--) {
+    for (int j = board.getHeight() - 1; j > 0; j--) {
         System.out.print(" |");  // Aggiungi il bordo laterale sinistro
-        for (int i = 1; i < board.width(); i++) {
+        for (int i = 1; i < board.getWidth(); i++) {
             // Stampa la testa dello snake
             if (snake.getHeadXCoordinate() == i && snake.getHeadYCoordinate() == j) {
                 System.out.print("X");
@@ -95,6 +95,6 @@ public class GameLoop extends AnimationTimer {
     }
 
     // Cornice inferiore
-    System.out.println("  " + "-".repeat(board.width() + 2));  // Stampa la linea inferiore
+    System.out.println("  " + "-".repeat(board.getWidth() + 2));  // Stampa la linea inferiore
     }
 }
