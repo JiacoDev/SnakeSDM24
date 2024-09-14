@@ -27,10 +27,8 @@ public class SnakeMover {
      */
     public void move(Direction direction,SnakeDirection snakeDirection) {
         SnakeBody body = snake.getBody();
-        int oldX = body.getHeadXCoordinate();
-        int oldY = body.getHeadYCoordinate();
-        int newX = oldX;
-        int newY = oldY;
+        int newX = body.getHeadXCoordinate();
+        int newY = body.getHeadYCoordinate();
 
         switch (direction) {
             case UP -> newY++;
@@ -52,10 +50,8 @@ public class SnakeMover {
      */
     public void grow(Direction direction,SnakeDirection snakeDirection) {
         SnakeBody body = snake.getBody();
-        int oldX = body.getHeadXCoordinate();
-        int oldY = body.getHeadYCoordinate();
-        int newX = oldX;
-        int newY = oldY;
+        int newX = body.getHeadXCoordinate();
+        int newY = body.getHeadYCoordinate();
 
         switch (direction) {
             case UP -> newY++;
