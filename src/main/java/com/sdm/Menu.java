@@ -11,11 +11,13 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 public class Menu {
 
     public static Pane drawMenu(GameLoop gameLoop) {
+
+        Dimension dimension = new Dimension();
+
         // Creazione del titolo
         Text title = new Text("Snake Game");
         title.setStyle("-fx-font-size: 30px; -fx-font-weight: bold;");
@@ -34,17 +36,17 @@ public class Menu {
 
         // Creazione di un'immagine che funge da bordo
         ImageView borderImage = new ImageView(new Image("file:src/main/resources/com/sdm/images/nokiaBorderV2.png")); // Percorso dell'immagine
-        borderImage.setFitWidth(680); // Larghezza dell'immagine
-        borderImage.setFitHeight(680); // Altezza dell'immagine
-        borderImage.setPreserveRatio(true); // Mantiene le proporzioni
+        borderImage.setFitWidth(dimension.getWindow_X()); // Larghezza dell'immagine
+        borderImage.setFitHeight(dimension.getWindow_Y()); // Altezza dell'immagine
+        //borderImage.setPreserveRatio(true); // Mantiene le proporzioni
 
-        Rectangle background = new Rectangle(680, 680, Color.OLIVE);
+        Rectangle background = new Rectangle(dimension.getWindow_X(), dimension.getWindow_Y(), Color.OLIVE);
 
         // Layout con immagine di sfondo e menu in primo piano
         StackPane stackPane = new StackPane();
         stackPane.getChildren().addAll(background,borderImage, menuLayout); // L'immagine Ã¨ sotto, il menu sopra
-        StackPane.setAlignment(borderImage, Pos.CENTER); // Centrare l'immagine
-        StackPane.setAlignment(menuLayout, Pos.CENTER); // Centrare il menu
+        //StackPane.setAlignment(borderImage, Pos.CENTER); // Centrare l'immagine
+        //StackPane.setAlignment(menuLayout, Pos.CENTER); // Centrare il menu
 
         return stackPane;
     }
