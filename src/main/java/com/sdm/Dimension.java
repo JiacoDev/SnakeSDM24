@@ -5,7 +5,7 @@ public class Dimension {
 
     private final int boardStartingWidth = 32;
     private final int boardStartingHeight = 32;
-    private final int dim = 15;
+    private final int dim = 16;
 
     public Dimension() {
     }

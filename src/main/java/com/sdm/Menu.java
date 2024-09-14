@@ -45,8 +45,6 @@ public class Menu {
         // Layout con immagine di sfondo e menu in primo piano
         StackPane stackPane = new StackPane();
         stackPane.getChildren().addAll(background,borderImage, menuLayout); // L'immagine Ã¨ sotto, il menu sopra
-        //StackPane.setAlignment(borderImage, Pos.CENTER); // Centrare l'immagine
-        //StackPane.setAlignment(menuLayout, Pos.CENTER); // Centrare il menu
 
         return stackPane;
     }
