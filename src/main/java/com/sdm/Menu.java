@@ -27,7 +27,7 @@ public class Menu {
 
         // Bottone per uscire dall'applicazione
         Button exitButton = new Button("Esci");
-        exitButton.setStyle("-fx-font-size: 20px;");
+        exitButton.setStyle(getButtonStyle());
 
         // Layout per il menu
         VBox menuLayout = new VBox(20);
@@ -51,7 +51,7 @@ public class Menu {
 
     private static Button createPlayButton(AnimationTimer gameLoop) {
         Button playButton = new Button("Gioca");
-        playButton.setStyle(getPlayButtonStyle());
+        playButton.setStyle(getButtonStyle());
 
         // Assegnazione dell'azione al click del pulsante
         playButton.setOnAction(r -> handlePlayButtonClick(gameLoop));
@@ -65,7 +65,7 @@ public class Menu {
     }
 
     // Metodo per restituire lo stile del pulsante
-    private static String getPlayButtonStyle() {
-        return "-fx-font-size: 20px;";
+    private static String getButtonStyle() {
+        return "-fx-font-size: 20px; -fx-background-color: #808000; -fx-text-fill: black; -fx-font-weight: bold;";
     }
 }
