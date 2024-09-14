@@ -4,6 +4,7 @@ import com.sdm.snake.Snake;
 import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 public class GameLoop extends AnimationTimer {
 
@@ -16,12 +17,15 @@ public class GameLoop extends AnimationTimer {
     private Score score = new Score();
     private long lastUpdateTime = 0;
     private double totalGameTime = 0;
+    private Stage stage;
 
-    public GameLoop(Snake initSnake, Board initBoard, Fruit initFruit, Scene initScene) {
+
+    public GameLoop(Snake initSnake, Board initBoard, Fruit initFruit, Scene initScene, Stage initStage) {
         snake = initSnake;
         board = initBoard;
         fruit = initFruit;
         scene = initScene;
+        stage = initStage;
     }
 
     @Override
@@ -48,10 +52,16 @@ public class GameLoop extends AnimationTimer {
                 FruitSpawnHandler.randomFruitMove(snake, fruit, board);
 
             }
-            case SNAKE_COLLISION -> Platform.exit();
-            case WALL_COLLISION -> Platform.exit();
+            case SNAKE_COLLISION, WALL_COLLISION -> showGameOver();
         }
 
     }
+
+    private void showGameOver() {
+        stop(); // Stop the game loop
+        GameOver gameOver = new GameOver(score.getScore());
+        Platform.runLater(() -> stage.setScene(gameOver.createGameOverScene(stage, this)));
+    }
+
 
 }
