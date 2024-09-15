@@ -36,8 +36,8 @@ public class SnakeGameApplicationInitializer extends Application {
         scene.setFill(Color.OLIVE);
 
         scene.addEventHandler(KeyEvent.KEY_PRESSED,  new SnakeDirectionInputHandler(startSnake));
-
-        GameLoop gameLoop = new GameLoop(startSnake, startBoard, startFruit, scene, stage);
+        DrawHandler drawHandler = new DrawHandler(stage, scene);
+        GameLoop gameLoop = new GameLoop(startSnake, startBoard, startFruit, drawHandler);
         scene.setRoot(Menu.drawMenu(gameLoop));
         //gameLoop.start();
     }

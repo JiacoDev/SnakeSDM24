@@ -1,10 +1,8 @@
 package com.sdm;
 
 import com.sdm.snake.Snake;
+
 import javafx.animation.AnimationTimer;
-import javafx.application.Platform;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 public class GameLoop extends AnimationTimer {
 
@@ -13,19 +11,17 @@ public class GameLoop extends AnimationTimer {
     private Snake snake;
     private Board board;
     private Fruit fruit;
-    private Scene scene;
     private Score score = new Score();
     private long lastUpdateTime = 0;
     private double totalGameTime = 0;
-    private Stage stage;
+    private DrawHandler drawHandler;
 
 
-    public GameLoop(Snake initSnake, Board initBoard, Fruit initFruit, Scene initScene, Stage initStage) {
+    public GameLoop(Snake initSnake, Board initBoard, Fruit initFruit, DrawHandler initDrawHandler) {
         snake = initSnake;
         board = initBoard;
         fruit = initFruit;
-        scene = initScene;
-        stage = initStage;
+        drawHandler = initDrawHandler;
     }
 
     @Override
@@ -36,7 +32,7 @@ public class GameLoop extends AnimationTimer {
             if (totalGameTime >= 1.0) {
                 updateGame();
                 //Draw func
-                scene.setRoot(Graphic.draw(snake, fruit, board, score));
+                drawHandler.draw(snake,fruit,board,score);
                 totalGameTime -= 1;
             }
         }
@@ -52,16 +48,11 @@ public class GameLoop extends AnimationTimer {
                 FruitSpawnHandler.randomFruitMove(snake, fruit, board);
 
             }
-            case SNAKE_COLLISION, WALL_COLLISION -> showGameOver();
+            case SNAKE_COLLISION, WALL_COLLISION -> {
+                drawHandler.drawGameOver(score, this);
+                stop();
+            }
         }
 
     }
-
-    private void showGameOver() {
-        stop(); // Stop the game loop
-        GameOver gameOver = new GameOver(score.getScore());
-        Platform.runLater(() -> stage.setScene(gameOver.createGameOverScene(stage, this)));
-    }
-
-
 }

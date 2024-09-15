@@ -41,7 +41,6 @@ public class Menu {
         ImageView borderImage = new ImageView(new Image("file:src/main/resources/com/sdm/images/nokiaBorderV2.png")); // Percorso dell'immagine
         borderImage.setFitWidth(dimension.getWindow_X()); // Larghezza dell'immagine
         borderImage.setFitHeight(dimension.getWindow_Y()); // Altezza dell'immagine
-        //borderImage.setPreserveRatio(true); // Mantiene le proporzioni
 
         Rectangle background = new Rectangle(dimension.getWindow_X(), dimension.getWindow_Y(), Color.OLIVE);
 
@@ -58,7 +57,6 @@ public class Menu {
 
         // Assegnazione dell'azione al click del pulsante
         playButton.setOnAction(r -> handlePlayButtonClick(gameLoop));
-
         return playButton;
     }
 
