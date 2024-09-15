@@ -25,7 +25,7 @@ class FruitSpawnHandlerTest {
 
         //Creo un mock di Random
         Random randomMock = Mockito.spy(new Random(System.currentTimeMillis()));
-        Mockito.doReturn(STARTING_X).doReturn(STARTING_Y).doReturn(8).doReturn(8).when(randomMock).nextInt(1, board.getWidth());  // 11 perché è `board.getWidth() + 1` e `board.getHeight() + 1`
+        Mockito.doReturn(STARTING_X).doReturn(STARTING_Y).doReturn(8).doReturn(8).when(randomMock).nextInt(1, board.width());  // 11 perché è `board.getWidth() + 1` e `board.getHeight() + 1`
         FruitSpawnHandler.setRandom(randomMock);
 
         FruitSpawnHandler.randomFruitMove(snake, fruit, board);
