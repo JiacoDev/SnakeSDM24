@@ -1,6 +1,7 @@
 package com.sdm;
 
 import javafx.animation.AnimationTimer;
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -28,6 +29,8 @@ public class Menu {
         // Bottone per uscire dall'applicazione
         Button exitButton = new Button("Esci");
         exitButton.setStyle(getButtonStyle());
+        exitButton.setOnAction(r -> handleExitButtonClick());
+
 
         // Layout per il menu
         VBox menuLayout = new VBox(20);
@@ -67,5 +70,8 @@ public class Menu {
     // Metodo per restituire lo stile del pulsante
     private static String getButtonStyle() {
         return "-fx-font-size: 20px; -fx-background-color: #808000; -fx-text-fill: black; -fx-font-weight: bold;";
+    }
+    private static void handleExitButtonClick() {
+        Platform.exit();
     }
 }
