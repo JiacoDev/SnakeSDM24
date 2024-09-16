@@ -106,7 +106,7 @@ public class SnakeGameApplicationInitializer extends Application {
      */
     private Scene initializeScene(Board board) {
         Dimension.setDimension(board.width(), board.height());
-        return new Scene(new Pane(), Dimension.getWindow_X(), Dimension.getWindow_Y());
+        return new Scene(new Pane(), Dimension.getWindow_width(), Dimension.getWindow_height());
     }
 
     /**

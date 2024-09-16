@@ -77,7 +77,7 @@ public class GameOver {
      * @return a {@code Button} labeled "Esci" with the exit button style
      */
     private static Button drawExitButton() {
-        Button exitButton = new Button("Esci");
+        Button exitButton = new Button("Exit");
         exitButton.setStyle(getButtonStyle());
         exitButton.setOnAction(r -> handleExitButtonClick());
         return exitButton;
