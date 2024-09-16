@@ -1,5 +1,10 @@
 # Snake Game - Java/Javafx
 
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+![JavaFX](https://img.shields.io/badge/javafx-%23FF0000.svg?style=for-the-badge&logo=javafx&logoColor=white)
+![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white)
+![TravisCI](https://app.travis-ci.com/JiacoDev/SnakeSDM24.svg?token=XUXRd12uMpgHJqAT7Qpi&branch=master)
+
 ## Introduction
 
 This repository contains a Java and JavaFX implementation of the classic Snake game, developed for the "Software Development Methods" exam at the University of Trieste.
