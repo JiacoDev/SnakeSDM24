@@ -6,6 +6,6 @@ import com.sdm.model.Score;
 import com.sdm.model.snake.Snake;
 
 public interface Renderer {
-    public void draw(Snake snake, Fruit fruit, Board board, Score score);
-    public void drawGameOver(Score score);
+    void draw(Snake snake, Fruit fruit, Board board, Score score);
+    void drawGameOver(Score score);
 }
