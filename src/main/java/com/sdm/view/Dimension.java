@@ -13,12 +13,12 @@ public class Dimension {
     public static double getWindow_Y() {
         return ((((boardStartingHeight + 2 + Graphic.SPACEy * 2) / 5) * 9)) * squareDimension;
     }
-    public static int getSquareDimension() {
-        return squareDimension;
-    }
     public static void setDimension(int width, int height){
         boardStartingWidth = width;
         boardStartingHeight = height;
+    }
+    public static double scale(double val) {
+        return val * squareDimension;
     }
 
 }

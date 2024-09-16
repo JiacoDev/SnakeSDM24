@@ -30,7 +30,7 @@ public class Graphic {
     public static Pane draw(Snake snake, Fruit fruit, Board board, Score score) {
         Pane pane = new Pane();
 
-        //board limits
+        //--Board limits
 
         pane.getChildren().add(drawVerticalLine(board, 0));
 
@@ -48,12 +48,14 @@ public class Graphic {
 
         drawSnake(snake,board,pane);
 
+        //--Score
+
         Text text = new Text();
         setDrawStyle(text);
         text.setText("SCORE: " + score.getScore());
-        text.setY((board.height() + SPACEy + 2)*Dimension.getSquareDimension() - Dimension.getSquareDimension());
-        text.setX((SPACEx)*Dimension.getSquareDimension() - Dimension.getSquareDimension());
-        text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, Dimension.getSquareDimension()));
+        text.setY(Dimension.scale(board.height() + SPACEy + 1));
+        text.setX(Dimension.scale(SPACEx- 1));
+        text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, Dimension.scale(1)));
         pane.getChildren().add(text);
 
 
@@ -70,7 +72,7 @@ public class Graphic {
         stackPane.getChildren().addAll(background,borderImage, pane); // L'immagine Ã¨ sotto, il menu sopra
         StackPane.setAlignment(borderImage, Pos.CENTER); // Centrare l'immagine
         StackPane.setAlignment(pane, Pos.CENTER); // Centrare il pane
-        StackPane.setMargin(pane, new Insets(Dimension.getWindow_Y()/9 + 1.5 * Dimension.getSquareDimension(), 0, 0, Dimension.getWindow_X()/9 + 1.5 * Dimension.getSquareDimension()));
+        StackPane.setMargin(pane, new Insets(Dimension.getWindow_Y()/9 + Dimension.scale(1.5), 0, 0, Dimension.getWindow_X()/9 + Dimension.scale(1.5)));
 
 
         return stackPane;
@@ -82,18 +84,18 @@ public class Graphic {
     }
 
     private static void setDimension(Rectangle rectangle, double width, double height){
-        rectangle.setWidth(width);
-        rectangle.setHeight(height);
+        rectangle.setWidth(Dimension.scale(width));
+        rectangle.setHeight(Dimension.scale(height));
     }
 
     private static void setPosition(Rectangle rectangle, double x, double y){
-        rectangle.setX(x);
-        rectangle.setY(y);
+        rectangle.setX(Dimension.scale(x));
+        rectangle.setY(Dimension.scale(y));
     }
 
     private static void setPosition(Circle circle, double x, double y){
-        circle.setCenterX(x);
-        circle.setCenterY(y);
+        circle.setCenterX(Dimension.scale(x));
+        circle.setCenterY(Dimension.scale(y));
     }
 
     private static Rectangle drawHorizontalLine(Board board, double yPosition){
@@ -102,9 +104,9 @@ public class Graphic {
 
         setDrawStyle(rectangle);
 
-        setDimension(rectangle, (board.width()-1)*Dimension.getSquareDimension(), Dimension.getSquareDimension());
+        setDimension(rectangle, board.width()-1, 1);
 
-        setPosition(rectangle, (SPACEx)*Dimension.getSquareDimension(), (yPosition - 1 + SPACEy)*Dimension.getSquareDimension());
+        setPosition(rectangle, SPACEx, yPosition - 1 + SPACEy);
 
         return rectangle;
     }
@@ -114,9 +116,9 @@ public class Graphic {
 
         setDrawStyle(rectangle);
 
-        setDimension(rectangle,Dimension.getSquareDimension(),(board.height() + 1)*Dimension.getSquareDimension());
+        setDimension(rectangle,1,board.height() + 1);
 
-        setPosition(rectangle, (xPosition - 1 + SPACEx)*Dimension.getSquareDimension(), (SPACEy - 1)*Dimension.getSquareDimension());
+        setPosition(rectangle, xPosition - 1 + SPACEx, SPACEy - 1);
 
         return rectangle;
     }
@@ -126,9 +128,9 @@ public class Graphic {
 
         setDrawStyle(circle);
 
-        circle.setRadius((double) Dimension.getSquareDimension() /3);
+        circle.setRadius(Dimension.scale((double) 1 /3));
 
-        setPosition(circle,(fruit.getPosition().getX() + SPACEx)*Dimension.getSquareDimension() - ((double) Dimension.getSquareDimension() /2),(board.height() - fruit.getPosition().getY() + SPACEy)*Dimension.getSquareDimension() + ((double) Dimension.getSquareDimension() /2) - Dimension.getSquareDimension());
+        setPosition(circle,fruit.getPosition().getX() + SPACEx - (double) 1 /2,board.height() - fruit.getPosition().getY() + SPACEy - (double) 1/2);
 
         return circle;
     }
@@ -141,9 +143,9 @@ public class Graphic {
 
             setDrawStyle(rectangle);
 
-            setDimension(rectangle, Dimension.getSquareDimension(), Dimension.getSquareDimension());
+            setDimension(rectangle, 1, 1);
 
-            setPosition(rectangle, (snake.getBody().getBodySegment(i).getX() + SPACEx)*Dimension.getSquareDimension() - Dimension.getSquareDimension(), ((board.height() - snake.getBody().getBodySegment(i).getY())+ SPACEy)*Dimension.getSquareDimension() - Dimension.getSquareDimension());
+            setPosition(rectangle, snake.getBody().getBodySegment(i).getX() + SPACEx - 1, (board.height() - snake.getBody().getBodySegment(i).getY())+ SPACEy - 1);
 
             rectangle.setArcWidth(10);
             rectangle.setArcHeight(10);
