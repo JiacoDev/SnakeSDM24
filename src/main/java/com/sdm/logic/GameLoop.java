@@ -14,6 +14,7 @@
  * </ul>
  */
 package com.sdm.logic;
+
 import com.sdm.model.Board;
 import com.sdm.model.Fruit;
 import com.sdm.model.Score;
@@ -38,9 +39,9 @@ public class GameLoop extends AnimationTimer {
     /**
      * Constructor to initialize the {@code GameLoop} with the main game components.
      *
-     * @param initSnake       the {@code Snake} object representing the player's snake
-     * @param initBoard       the {@code Board} object representing the game board
-     * @param initFruit       the {@code Fruit} object representing the fruit in the game
+     * @param initSnake        the {@code Snake} object representing the player's snake
+     * @param initBoard        the {@code Board} object representing the game board
+     * @param initFruit        the {@code Fruit} object representing the fruit in the game
      * @param initGameRenderer the {@code Renderer} object responsible for rendering the game
      */
     public GameLoop(Snake initSnake, Board initBoard, Fruit initFruit, Renderer initGameRenderer) {

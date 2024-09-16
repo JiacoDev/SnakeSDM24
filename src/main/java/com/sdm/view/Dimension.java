@@ -15,6 +15,7 @@
  * </ul>
  */
 package com.sdm.view;
+
 public class Dimension {
     private static int boardStartingWidth;
     private static int boardStartingHeight;
@@ -47,7 +48,7 @@ public class Dimension {
     /**
      * Sets the initial dimensions (width and height) of the game board.
      *
-     * @param width the width of the game board
+     * @param width  the width of the game board
      * @param height the height of the game board
      */
     public static void setDimension(int width, int height) {

@@ -57,10 +57,13 @@ public class Graphic {
         pane.getChildren().add(drawVerticalLine(board, board.width()));
         pane.getChildren().add(drawHorizontalLine(board, 0));
         pane.getChildren().add(drawHorizontalLine(board, board.height()));
+
         pane.getChildren().add(drawFruit(fruit, board));
 
         drawSnake(snake, board, pane);
+
         pane.getChildren().add(drawText(score, board));
+
         StackPane stackPane = Nokia3310.drawNokia3310();
         stackPane.getChildren().add(pane);
         StackPane.setAlignment(pane, Pos.CENTER);
@@ -83,8 +86,8 @@ public class Graphic {
      * Sets the dimensions of a {@code Rectangle}.
      *
      * @param rectangle the {@code Rectangle} to resize
-     * @param width the width of the rectangle
-     * @param height the height of the rectangle
+     * @param width     the width of the rectangle
+     * @param height    the height of the rectangle
      */
     private static void setDimension(Rectangle rectangle, double width, double height) {
         rectangle.setWidth(Dimension.scale(width));
@@ -95,8 +98,8 @@ public class Graphic {
      * Sets the position of a {@code Rectangle}.
      *
      * @param rectangle the {@code Rectangle} to position
-     * @param x the x-coordinate of the rectangle's position
-     * @param y the y-coordinate of the rectangle's position
+     * @param x         the x-coordinate of the rectangle's position
+     * @param y         the y-coordinate of the rectangle's position
      */
     private static void setPosition(Rectangle rectangle, double x, double y) {
         rectangle.setX(Dimension.scale(x));
@@ -107,8 +110,8 @@ public class Graphic {
      * Sets the position of a {@code Circle}.
      *
      * @param circle the {@code Circle} to position
-     * @param x the x-coordinate of the circle's center
-     * @param y the y-coordinate of the circle's center
+     * @param x      the x-coordinate of the circle's center
+     * @param y      the y-coordinate of the circle's center
      */
     private static void setPosition(Circle circle, double x, double y) {
         circle.setCenterX(Dimension.scale(x));
@@ -119,8 +122,8 @@ public class Graphic {
      * Sets the position of a {@code Text}.
      *
      * @param text the {@code Text} to position
-     * @param x the x-coordinate of the text's position
-     * @param y the y-coordinate of the text's position
+     * @param x    the x-coordinate of the text's position
+     * @param y    the y-coordinate of the text's position
      */
     private static void setPosition(Text text, double x, double y) {
         text.setX(Dimension.scale(x));
@@ -132,7 +135,7 @@ public class Graphic {
      *
      * <p>This method creates a {@code Rectangle} representing a horizontal line, sets its style and position, and returns it.</p>
      *
-     * @param board the {@code Board} object representing the game board
+     * @param board     the {@code Board} object representing the game board
      * @param yPosition the y-coordinate for the horizontal line
      * @return a {@code Rectangle} representing the horizontal line
      */
@@ -149,7 +152,7 @@ public class Graphic {
      *
      * <p>This method creates a {@code Rectangle} representing a vertical line, sets its style and position, and returns it.</p>
      *
-     * @param board the {@code Board} object representing the game board
+     * @param board     the {@code Board} object representing the game board
      * @param xPosition the x-coordinate for the vertical line
      * @return a {@code Rectangle} representing the vertical line
      */
@@ -185,7 +188,7 @@ public class Graphic {
      *
      * @param snake the {@code Snake} object representing the current state of the snake
      * @param board the {@code Board} object representing the game board
-     * @param pane the {@code Pane} to which the snake segments will be added
+     * @param pane  the {@code Pane} to which the snake segments will be added
      */
     private static void drawSnake(Snake snake, Board board, Pane pane) {
         Rectangle rectangle;
