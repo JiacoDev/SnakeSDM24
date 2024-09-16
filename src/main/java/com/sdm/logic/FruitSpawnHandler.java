@@ -16,9 +16,9 @@ public class FruitSpawnHandler {
 
     public static void randomFruitMove(Snake snake, Fruit fruit, Board board) {
         do {
-            fruit.setPosX(rand.nextInt(1,board.width()));
-            fruit.setPosY(rand.nextInt(1,board.height()));
-        } while ( IntStream.range(0, snake.getBody().getSize()).anyMatch(
+            fruit.setPosX(rand.nextInt(1, board.width()));
+            fruit.setPosY(rand.nextInt(1, board.height()));
+        } while (IntStream.range(0, snake.getSize()).anyMatch(
                 j -> snake.getBody().getBodySegment(j).getX() == fruit.getPosX() &&
                         snake.getBody().getBodySegment(j).getY() == fruit.getPosY()));
     }

@@ -4,7 +4,7 @@ import com.sdm.model.Position;
 public class MovementLeftState implements SnakeMovementState {
 
     @Override
-    public Position move(Position currentPosition) {
+    public Position getNewMovePosition(Position currentPosition) {
         return new Position(currentPosition.getX() - 1, currentPosition.getY());
     }
 

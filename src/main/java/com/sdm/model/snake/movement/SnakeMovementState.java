@@ -2,6 +2,6 @@ package com.sdm.model.snake.movement;
 import com.sdm.model.Position;
 
 public interface SnakeMovementState {
-    Position move(Position currentPosition);
+    Position getNewMovePosition(Position currentPosition);
     boolean canChangeTo(SnakeMovementState newState);
 }

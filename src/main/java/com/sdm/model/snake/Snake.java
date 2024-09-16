@@ -38,11 +38,8 @@ public class Snake {
     }
 
     private Position getNextHeadPosition() {
-        if(currentMovementState.canChangeTo(nextMovementState)) {
-            nextMovementState.move(snakeBody.getHead());
-            currentMovementState = nextMovementState;
-        }
-        return currentMovementState.move(snakeBody.getHead());
+        currentMovementState = nextMovementState;
+        return nextMovementState.getNewMovePosition(snakeBody.getHead());
     }
 
     public Position getBodySegment(int index) {

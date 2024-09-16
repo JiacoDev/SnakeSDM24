@@ -23,24 +23,4 @@ public record Board(int width, int height) {
      */
     public Board {
     }
-
-    /**
-     * Returns the height of the grid.
-     *
-     * @return The height of the grid.
-     */
-    @Override
-    public int height() {
-        return height;
-    }
-
-    /**
-     * Returns the width of the grid.
-     *
-     * @return The width of the grid.
-     */
-    @Override
-    public int width() {
-        return width;
-    }
 }
