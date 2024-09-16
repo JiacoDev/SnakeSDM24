@@ -1,6 +1,6 @@
-package com.sdm.snake.body;
+package com.sdm.model.snake.body;
 
-import com.sdm.Position;
+import com.sdm.model.Position;
 
 import java.util.ArrayList;
 import java.util.List;

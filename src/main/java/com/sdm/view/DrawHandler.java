@@ -1,6 +1,10 @@
-package com.sdm;
+package com.sdm.view;
 
-import com.sdm.snake.Snake;
+import com.sdm.logic.GameLoop;
+import com.sdm.model.Board;
+import com.sdm.model.Fruit;
+import com.sdm.model.Score;
+import com.sdm.model.snake.Snake;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

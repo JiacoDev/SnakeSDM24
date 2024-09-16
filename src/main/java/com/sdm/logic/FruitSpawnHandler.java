@@ -1,6 +1,8 @@
-package com.sdm;
+package com.sdm.logic;
 
-import com.sdm.snake.Snake;
+import com.sdm.model.Board;
+import com.sdm.model.Fruit;
+import com.sdm.model.snake.Snake;
 
 import java.util.Random;
 import java.util.stream.IntStream;

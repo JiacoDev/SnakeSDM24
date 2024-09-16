@@ -27,7 +27,7 @@ tasks.withType(JavaCompile).configureEach {
 application {
   // Definizione del main module e della main class
   mainModule = 'com.sdm'
-  mainClass = 'com.sdm.SnakeGameApplicationInitializer'
+  mainClass = 'com.sdm.main.SnakeGameApplicationInitializer'
 }
 
 java {

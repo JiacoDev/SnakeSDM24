@@ -4,10 +4,16 @@ module com.sdm {
     requires org.controlsfx.controls;
     requires java.desktop;
 
-    opens com.sdm to javafx.fxml;
-    exports com.sdm;
-    exports com.sdm.snake;
-    opens com.sdm.snake to javafx.fxml;
-    exports com.sdm.snake.body;
-    opens com.sdm.snake.body to javafx.fxml;
+    exports com.sdm.model.snake;
+    opens com.sdm.model.snake to javafx.fxml;
+    exports com.sdm.model.snake.body;
+    opens com.sdm.model.snake.body to javafx.fxml;
+    exports com.sdm.model;
+    opens com.sdm.model to javafx.fxml;
+    exports com.sdm.logic;
+    opens com.sdm.logic to javafx.fxml;
+    exports com.sdm.view;
+    opens com.sdm.view to javafx.fxml;
+    exports com.sdm.main;
+    opens com.sdm.main to javafx.fxml;
 }

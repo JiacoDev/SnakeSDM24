@@ -1,11 +1,12 @@
 package com.sdm;
 
-import com.sdm.snake.Direction;
-import com.sdm.snake.Snake;
-import com.sdm.snake.movement.MovementDownState;
-import com.sdm.snake.movement.MovementLeftState;
-import com.sdm.snake.movement.MovementRightState;
-import com.sdm.snake.movement.MovementUpState;
+import com.sdm.logic.SnakeDirectionInputHandler;
+import com.sdm.model.Position;
+import com.sdm.model.snake.Snake;
+import com.sdm.model.snake.movement.MovementDownState;
+import com.sdm.model.snake.movement.MovementLeftState;
+import com.sdm.model.snake.movement.MovementRightState;
+import com.sdm.model.snake.movement.MovementUpState;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.junit.jupiter.api.Assertions;

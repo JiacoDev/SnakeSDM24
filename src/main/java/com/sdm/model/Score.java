@@ -1,4 +1,4 @@
-package com.sdm;
+package com.sdm.model;
 
 public class Score {
 
@@ -9,7 +9,7 @@ public class Score {
     }
 
     public void addToScore(int amount) {
-        score += amount;
+        score += amount*10;
     }
 
     public int getScore() {

@@ -1,4 +1,4 @@
-package com.sdm;
+package com.sdm.model;
 
 /**
  * Represents a rectangular grid with specified width and height.

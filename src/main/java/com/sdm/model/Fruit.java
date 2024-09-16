@@ -1,4 +1,4 @@
-package com.sdm;
+package com.sdm.model;
 
 public class Fruit {
     private int posX;

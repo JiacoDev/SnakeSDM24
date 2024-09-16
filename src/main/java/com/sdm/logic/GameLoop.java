@@ -1,6 +1,10 @@
-package com.sdm;
+package com.sdm.logic;
 
-import com.sdm.snake.Snake;
+import com.sdm.view.DrawHandler;
+import com.sdm.model.Board;
+import com.sdm.model.Fruit;
+import com.sdm.model.Score;
+import com.sdm.model.snake.Snake;
 
 import javafx.animation.AnimationTimer;
 
@@ -41,14 +45,14 @@ public class GameLoop extends AnimationTimer {
 
     private void updateGame() {
         switch (CollisionHandler.checkCollision(snake, fruit, board)) {
-            case NORMAL -> snake.move();
-            case EAT -> {
+            case GameState.NORMAL -> snake.move();
+            case GameState.EAT -> {
                 snake.grow();
                 score.addToScore(1);
                 FruitSpawnHandler.randomFruitMove(snake, fruit, board);
 
             }
-            case SNAKE_COLLISION, WALL_COLLISION -> {
+            case GameState.SNAKE_COLLISION, GameState.WALL_COLLISION -> {
                 drawHandler.drawGameOver(score, this);
                 stop();
             }

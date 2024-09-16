@@ -1,12 +1,12 @@
-package com.sdm;
+package com.sdm.logic;
 
-import com.sdm.snake.movement.MovementDownState;
-import com.sdm.snake.movement.MovementLeftState;
-import com.sdm.snake.movement.MovementRightState;
-import com.sdm.snake.movement.MovementUpState;
+import com.sdm.model.snake.Snake;
+import com.sdm.model.snake.movement.MovementDownState;
+import com.sdm.model.snake.movement.MovementLeftState;
+import com.sdm.model.snake.movement.MovementRightState;
+import com.sdm.model.snake.movement.MovementUpState;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
-import com.sdm.snake.*;
 
 public class SnakeDirectionInputHandler implements EventHandler<KeyEvent> {
     private final Snake snake;

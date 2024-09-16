@@ -1,5 +1,6 @@
 package com.sdm;
 
+import com.sdm.model.Fruit;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -1,5 +1,5 @@
-package com.sdm.snake.movement;
-import com.sdm.Position;
+package com.sdm.model.snake.movement;
+import com.sdm.model.Position;
 
 public class MovementRightState implements SnakeMovementState{
 

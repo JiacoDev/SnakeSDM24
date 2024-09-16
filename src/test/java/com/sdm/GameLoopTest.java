@@ -1,11 +1,16 @@
 package com.sdm;
 
-import com.sdm.snake.Direction;
-import com.sdm.snake.Snake;
-import com.sdm.snake.movement.MovementDownState;
-import com.sdm.snake.movement.MovementLeftState;
-import com.sdm.snake.movement.MovementRightState;
-import com.sdm.snake.movement.MovementUpState;
+import com.sdm.logic.GameLoop;
+import com.sdm.model.Board;
+import com.sdm.model.Fruit;
+import com.sdm.model.Position;
+import com.sdm.model.Score;
+import com.sdm.model.snake.Snake;
+import com.sdm.model.snake.movement.MovementDownState;
+import com.sdm.model.snake.movement.MovementLeftState;
+import com.sdm.model.snake.movement.MovementRightState;
+import com.sdm.model.snake.movement.MovementUpState;
+import com.sdm.view.DrawHandler;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

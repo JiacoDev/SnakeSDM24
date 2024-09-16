@@ -1,8 +1,8 @@
-package com.sdm.snake;
+package com.sdm.model.snake;
 
-import com.sdm.snake.body.SnakeBody;
-import com.sdm.Position;
-import com.sdm.snake.movement.SnakeMovementState;
+import com.sdm.model.snake.body.SnakeBody;
+import com.sdm.model.Position;
+import com.sdm.model.snake.movement.SnakeMovementState;
 
 /**
  * The {@code Snake} class represents a snake in the game, composed of a body, a direction,

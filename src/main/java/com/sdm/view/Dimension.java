@@ -1,11 +1,11 @@
-package com.sdm;
+package com.sdm.view;
 
 public class Dimension {
 
 
     private final int boardStartingWidth = 32;
     private final int boardStartingHeight = 32;
-    private final int dim = 16;
+    private final int dim = 15;
 
     public Dimension() {
     }

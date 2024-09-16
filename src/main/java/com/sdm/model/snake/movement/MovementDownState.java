@@ -1,6 +1,6 @@
-package com.sdm.snake.movement;
+package com.sdm.model.snake.movement;
 
-import com.sdm.Position;
+import com.sdm.model.Position;
 
 public class MovementDownState implements SnakeMovementState {
     @Override

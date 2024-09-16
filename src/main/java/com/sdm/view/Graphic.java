@@ -1,6 +1,9 @@
-package com.sdm;
+package com.sdm.view;
 
-import com.sdm.snake.Snake;
+import com.sdm.model.Board;
+import com.sdm.model.Fruit;
+import com.sdm.model.Score;
+import com.sdm.model.snake.Snake;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;

@@ -1,14 +1,13 @@
 package com.sdm;
 
-import com.sdm.snake.Direction;
-import com.sdm.snake.Snake;
-import com.sdm.snake.movement.*;
+import com.sdm.model.Position;
+import com.sdm.model.snake.Snake;
+import com.sdm.model.snake.movement.MovementDownState;
+import com.sdm.model.snake.movement.MovementRightState;
+import com.sdm.model.snake.movement.MovementUpState;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.EnumSource;
-
 
 
 public class SnakeTest {

@@ -1,7 +1,15 @@
-package com.sdm;
+package com.sdm.main;
 
-import com.sdm.snake.Snake;
-import com.sdm.snake.movement.MovementUpState;
+import com.sdm.logic.GameLoop;
+import com.sdm.logic.SnakeDirectionInputHandler;
+import com.sdm.model.Board;
+import com.sdm.model.Fruit;
+import com.sdm.model.Position;
+import com.sdm.model.snake.Snake;
+import com.sdm.model.snake.movement.MovementUpState;
+import com.sdm.view.Dimension;
+import com.sdm.view.DrawHandler;
+import com.sdm.view.Menu;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;

@@ -1,4 +1,4 @@
-package com.sdm;
+package com.sdm.model;
 
 public class Position {
     private final int x;
