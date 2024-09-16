@@ -13,34 +13,30 @@ The project is built using Gradle.
 </p>
 
 ### Objective
-The goal of the game is to control the snake, eat food to grow, and avoid collisions with the screen edges or the snake’s own body. The longer the snake grows, the higher your score.
+
+Control the snake to eat food, grow longer, and avoid collisions with the edges of the field or your own body. As the snake grows, so does your score.
 
 ### How to Play
 
-Controls:
+1. Start the Game: Click "Play" to begin.
+2. Control the Snake:
 
-Move the Snake: Use the arrow keys to change the direction of the snake.
+    * W Arrow: Move up
+    * S Arrow: Move down
+    * A Arrow: Move left
+    * D Arrow: Move right
 
--W Arrow: Move the snake up.
-
--S Arrow: Move the snake down.
-
--A Arrow: Move the snake left.
-
--D Arrow: Move the snake right.
-
--Eat Food: The snake grows in lenght each time it consumes food, and your score increases.
-
--Avoid Collisions: If the snake collides with the edges of the screen or with its own body it's GAME OVER.
+3. Eat Food: Each time the snake consumes food, it grows longer and your score increases.
+4. Avoid Collisions: Hitting the edges of the field or the snake's own body results in a game over.
 
 ## Project Structure
 
 We organized the structure in the following directories:
 
-- `logic`: Contains the core game logic.
-- `main`: Is responsible for initializing the game.
-- `model`: Defines the game models such as Board, Fruit, and Snake, representing the game's core elements.
-- `view`: This package is responsible for the game's visual representation.
+- `/logic`: Contains the core game logic.
+- `/main`: Is responsible for initializing the game.
+- `/model`: Defines the game models such as Board, Fruit, and Snake, representing the game's core elements.
+- `/view`: This package is responsible for the game's visual representation.
 
 ## Requirements
 
@@ -48,10 +44,53 @@ We organized the structure in the following directories:
   
 - JavaFX SDK properly set up in your environment.
 
-Building the project with gradle should manage all the dependencies.
+Gradle will manage additional dependencies, so building the project is straightforward.
+
+## Building and Running the Project
+
+To build and run the project, follow these steps:
+
+1. Clone the repository:
+```
+git clone https://github.com/JiacoDev/SnakeSDM24.git
+```
+
+2. Navigate into the project directory:
+
+```
+cd SnakeSDM24
+```
+
+4. Build the project using Gradle:
+
+```
+./gradlew build
+```
+
+5. Run the game:
+```
+./gradlew run
+```
+
+## Testing
+
+This project integrates automated tests to ensure code reliability and prevent regressions. Run the tests with:
+
+```
+./gradlew test
+```
+
+The tests follow a Test-Driven Development (TDD) approach, ensuring that new features are well-tested from the start.
+All the classes in `/logic` and `/model` are fully tested, while all the classes related to graphic elements in the package `/view` are not tested.
 
 ## Javadoc Documentation
-This project uses Javadoc to document classes and methods. You can generate the documentation using gradle.
+
+Javadoc is used to document the project's classes and methods. You can generate the documentation using Gradle:
+```
+./gradlew javadoc
+```
+The generated documentation will be available in the `build/docs/javadoc` directory
+gradle javadoc
 
 ## License
 
