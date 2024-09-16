@@ -31,90 +31,82 @@ public class Graphic {
 
         Rectangle rectangle = new Rectangle();
 
-        rectangle.setFill(color);
+        //--board limits
+
+        setDrawStyle(rectangle);
         rectangle.setWidth(dimension.getDim());
         rectangle.setHeight(board.height()*dimension.getDim());
         rectangle.setX((-1 + SPACEx)*dimension.getDim());
         rectangle.setY(SPACEy*dimension.getDim());
-        rectangle.setOpacity(0.8);
+
 
         pane.getChildren().add(rectangle);
 
         rectangle = new Rectangle();
 
-        rectangle.setFill(color);
+        setDrawStyle(rectangle);
         rectangle.setWidth(dimension.getDim());
         rectangle.setHeight(board.height()*dimension.getDim());
         rectangle.setX((board.width()-1 + SPACEx)*dimension.getDim());
         rectangle.setY((-1 + SPACEy)*dimension.getDim());
-        rectangle.setOpacity(0.8);
+
 
         pane.getChildren().add(rectangle);
 
         rectangle = new Rectangle();
 
-        rectangle.setFill(color);
+        setDrawStyle(rectangle);
         rectangle.setWidth(board.width()*dimension.getDim());
         rectangle.setHeight(dimension.getDim());
         rectangle.setX((-1 + SPACEx)*dimension.getDim());
         rectangle.setY((-1 + SPACEy)*dimension.getDim());
-        rectangle.setOpacity(0.8);
+
 
         pane.getChildren().add(rectangle);
 
         rectangle = new Rectangle();
 
-        rectangle.setFill(color);
+        setDrawStyle(rectangle);
         rectangle.setWidth((board.width())*dimension.getDim());
         rectangle.setHeight(dimension.getDim());
         rectangle.setX((SPACEx)*dimension.getDim());
         rectangle.setY((board.height() -1 + SPACEy)*dimension.getDim());
-        rectangle.setOpacity(0.8);
+
 
         pane.getChildren().add(rectangle);
 
+        //--Fruit
+
         Circle circle = new Circle();
+
+        setDrawStyle(circle);
         circle.setRadius((double) dimension.getDim() /3);
-        circle.setFill(color);
         circle.setCenterX((fruit.getPosX() + SPACEx)*dimension.getDim() - ((double) dimension.getDim() /2));
         circle.setCenterY((board.height() - fruit.getPosY() + SPACEy)*dimension.getDim() + ((double) dimension.getDim() /2) - dimension.getDim());
-        circle.setOpacity(0.8);
+
 
         pane.getChildren().add(circle);
 
-        rectangle = new Rectangle();
+        //---Snake
 
-        rectangle.setFill(color);
-        rectangle.setHeight(dimension.getDim());
-        rectangle.setWidth(dimension.getDim());
-        rectangle.setX((snake.getBody().getHead().getX() + SPACEx)*dimension.getDim() - dimension.getDim());
-        rectangle.setY((board.height() - snake.getBody().getHead().getY() + SPACEy)*dimension.getDim() - dimension.getDim());
-        rectangle.setArcWidth(10);
-        rectangle.setArcHeight(10);
-        rectangle.setOpacity(0.8);
-
-        pane.getChildren().add(rectangle);
-
-
-
-        for(int i = 1; i < snake.getBody().getSize(); i++){
+        for(int i = 0; i < snake.getBody().getSize(); i++){
             rectangle = new Rectangle();
-            rectangle.setFill(color);
+
+            setDrawStyle(rectangle);
+
             rectangle.setHeight(dimension.getDim());
             rectangle.setWidth(dimension.getDim());
             rectangle.setX((snake.getBody().getBodySegment(i).getX() + SPACEx)*dimension.getDim() - dimension.getDim());
             rectangle.setY(((board.height() - snake.getBody().getBodySegment(i).getY())+ SPACEy)*dimension.getDim() - dimension.getDim());
             rectangle.setArcWidth(10);
             rectangle.setArcHeight(10);
-            rectangle.setOpacity(0.8);
 
             pane.getChildren().add(rectangle);
         }
 
         Text text = new Text();
+        setDrawStyle(text);
         text.setText("SCORE: " + score.getScore());
-        text.setFill(color);
-        text.setOpacity(0.8);
         text.setY((board.height() + SPACEy + 2)*dimension.getDim() - dimension.getDim());
         text.setX((SPACEx)*dimension.getDim() - dimension.getDim());
         text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, dimension.getDim()));
@@ -138,6 +130,21 @@ public class Graphic {
 
 
         return stackPane;
+    }
+
+    private static void setDrawStyle (Rectangle rectangle){
+        rectangle.setFill(color);
+        rectangle.setOpacity(0.8);
+    }
+
+    private static void setDrawStyle (Circle circle){
+        circle.setFill(color);
+        circle.setOpacity(0.8);
+    }
+
+    private static void setDrawStyle (Text text){
+        text.setFill(color);
+        text.setOpacity(0.8);
     }
 
 }
