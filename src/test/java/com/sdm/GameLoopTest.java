@@ -49,7 +49,7 @@ class GameLoopTest {
         gameLoop = new GameLoop(snake, board, fruit, drawHandlerMock);
 
         Mockito.doNothing().when(drawHandlerMock).draw(snake, fruit, board, score);
-        Mockito.doNothing().when(drawHandlerMock).drawGameOver(score, gameLoop);
+        Mockito.doNothing().when(drawHandlerMock).drawGameOver(score);
 
     }
 

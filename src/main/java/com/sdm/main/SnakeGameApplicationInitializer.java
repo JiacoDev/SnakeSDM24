@@ -15,7 +15,6 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 
@@ -42,14 +41,10 @@ public class SnakeGameApplicationInitializer extends Application {
         stage.setResizable(false);
         stage.show();
 
-        //scene.setFill(Color.PALEGREEN);
-        scene.setFill(Color.OLIVE);
-
         scene.addEventHandler(KeyEvent.KEY_PRESSED,  new SnakeDirectionInputHandler(startSnake));
-        DrawHandler drawHandler = new DrawHandler(stage, scene);
+        DrawHandler drawHandler = new DrawHandler(scene);
         GameLoop gameLoop = new GameLoop(startSnake, startBoard, startFruit, drawHandler);
         scene.setRoot(Menu.drawMenu(gameLoop));
-        //gameLoop.start();
     }
 
     public static void main(String[] args) {

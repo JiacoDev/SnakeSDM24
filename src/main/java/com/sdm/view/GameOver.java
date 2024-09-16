@@ -1,39 +1,33 @@
 package com.sdm.view;
 
-import com.sdm.logic.GameLoop;
+import com.sdm.model.Score;
+import javafx.application.Platform;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 public class GameOver {
 
-    private final int finalScore;
-
-    public GameOver(int score) {
-        this.finalScore = score;
-    }
-
-    public Scene createGameOverScene(Stage stage, GameLoop gameLoop) {
+    public static Pane createGameOverScene(Score score) {
 
         // Scrive Game Over
         Text title = new Text("GAME OVER");
         title.setStyle("-fx-font-size: 30px; -fx-font-weight: bold;");
 
         // Riporta il punteggio finale
-        Text scoreText = new Text("Score: " + finalScore);
+        Text scoreText = new Text("Score: " + score.getScore());
         scoreText.setStyle("-fx-font-size: 20px; -fx-font-weight: bold;");
 
-        Button returnButton = new Button("Return to Menu");
+        Button returnButton = new Button("Exit");
         returnButton.setStyle(getButtonStyle());
-        returnButton.setOnAction(e -> stage.setScene(new Scene(Menu.drawMenu(gameLoop))));
+        returnButton.setOnAction(_ -> Platform.exit());
 
         // Layout per il menu
         VBox menuLayout = new VBox(20);
@@ -49,11 +43,9 @@ public class GameOver {
 
         // Layout con immagine di sfondo e menu in primo piano
         StackPane stackPane = new StackPane();
-        stackPane.getChildren().addAll(background,borderImage, menuLayout); // L'immagine Ã¨ sotto, il menu sopra
+        stackPane.getChildren().addAll(background,borderImage, menuLayout);
 
-
-
-        return new Scene(stackPane, Dimension.getWindow_X(), Dimension.getWindow_Y());
+        return stackPane;
     }
 
     private static String getButtonStyle() {
