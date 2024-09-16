@@ -9,7 +9,7 @@ import com.sdm.model.Position;
 import com.sdm.model.snake.Snake;
 import com.sdm.model.snake.movement.MovementUpState;
 import com.sdm.view.Dimension;
-import com.sdm.view.DrawHandler;
+import com.sdm.view.GameRenderer;
 import com.sdm.view.Menu;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -27,7 +27,7 @@ public class SnakeGameApplicationInitializer extends Application {
         final int snakeStartingLength = 3;
         final int fruitStartingXCoordinate = 1;
         final int fruitStartingYCoordinate = 1;
-        
+
         Snake startSnake = new Snake(new Position(snakeStartingXCoordinate,snakeStartingYCoordinate), new MovementUpState(), snakeStartingLength);
         Board startBoard = new Board(32, 32);
         Fruit startFruit = new Fruit(new Position(fruitStartingXCoordinate,fruitStartingYCoordinate));
@@ -42,8 +42,8 @@ public class SnakeGameApplicationInitializer extends Application {
         stage.show();
 
         scene.addEventHandler(KeyEvent.KEY_PRESSED,  new SnakeDirectionInputHandler(startSnake));
-        DrawHandler drawHandler = new DrawHandler(scene);
-        GameLoop gameLoop = new GameLoop(startSnake, startBoard, startFruit, drawHandler);
+        GameRenderer gameRenderer = new GameRenderer(scene);
+        GameLoop gameLoop = new GameLoop(startSnake, startBoard, startFruit, gameRenderer);
         scene.setRoot(Menu.drawMenu(gameLoop));
     }
 

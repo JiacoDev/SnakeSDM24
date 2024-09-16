@@ -10,7 +10,7 @@ import com.sdm.model.snake.movement.MovementDownState;
 import com.sdm.model.snake.movement.MovementLeftState;
 import com.sdm.model.snake.movement.MovementRightState;
 import com.sdm.model.snake.movement.MovementUpState;
-import com.sdm.view.DrawHandler;
+import com.sdm.view.GameRenderer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,7 +35,7 @@ class GameLoopTest {
     GameLoop gameLoop;
 
     @Mock
-    DrawHandler drawHandlerMock;
+    GameRenderer drawHandlerMock;
 
     @BeforeEach
     void setUp() {
@@ -44,7 +44,7 @@ class GameLoopTest {
         fruit = new Fruit(new Position(FRUIT_STARTING_X, FRUIT_STARTING_Y));
         score = new Score();
 
-        drawHandlerMock = Mockito.mock(DrawHandler.class);
+        drawHandlerMock = Mockito.mock(GameRenderer.class);
 
         gameLoop = new GameLoop(snake, board, fruit, drawHandlerMock);
 

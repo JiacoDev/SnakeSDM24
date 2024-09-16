@@ -6,11 +6,11 @@ import com.sdm.model.Score;
 import com.sdm.model.snake.Snake;
 import javafx.scene.Scene;
 
-public class DrawHandler {
+public class GameRenderer implements Renderer {
 
     private final Scene scene;
 
-    public DrawHandler(Scene scene) {
+    public GameRenderer(Scene scene) {
         this.scene = scene;
     }
 
