@@ -4,13 +4,9 @@ import com.sdm.model.Score;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 public class GameOver {
@@ -34,16 +30,8 @@ public class GameOver {
         menuLayout.setAlignment(Pos.CENTER);
         menuLayout.getChildren().addAll(title, scoreText, returnButton);
 
-        // Creazione di un'immagine che funge da bordo
-        ImageView borderImage = new ImageView(new Image("file:src/main/resources/com/sdm/images/nokiaBorderV2.png")); // Percorso dell'immagine
-        borderImage.setFitWidth(Dimension.getWindow_X()); // Larghezza dell'immagine
-        borderImage.setFitHeight(Dimension.getWindow_Y()); // Altezza dell'immagine
-
-        Rectangle background = new Rectangle(Dimension.getWindow_X(), Dimension.getWindow_Y(), Color.OLIVE);
-
-        // Layout con immagine di sfondo e menu in primo piano
-        StackPane stackPane = new StackPane();
-        stackPane.getChildren().addAll(background,borderImage, menuLayout);
+        StackPane stackPane = Nokia3310.drawNokia3310();
+        stackPane.getChildren().add(menuLayout);
 
         return stackPane;
     }
