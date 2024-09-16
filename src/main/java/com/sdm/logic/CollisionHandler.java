@@ -1,7 +1,5 @@
 package com.sdm.logic;
 
-//Da decidere se fare refactoring in State altering Design pattern
-//Ulteriori refacoring necessari
 
 import com.sdm.model.Board;
 import com.sdm.model.Fruit;
