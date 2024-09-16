@@ -1,5 +1,7 @@
 package com.sdm.snake.body;
 
+import com.sdm.Position;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,92 +11,36 @@ import java.util.List;
  * during movement and growth.
  */
 public class SnakeBody {
-    private final List<BodyElement> bodyElements = new ArrayList<>();
+    private final List<Position> bodySegments;
 
-    /**
-     * Constructs a {@code SnakeBody} with the specified starting position and length.
-     * The head of the snake is placed at the starting coordinates, with the tail extending
-     * in a vertical direction.
-     *
-     * @param startingX the X coordinate of the snake's head.
-     * @param startingY the Y coordinate of the snake's head.
-     * @param length    the initial length of the snake's body.
-     * @throws IllegalArgumentException if the length is less than or equal to 0.
-     */
-    public SnakeBody(int startingX, int startingY, int length) {
-        if (length <= 0) {
-            throw new IllegalArgumentException("Length must be greater than 0");
-        }
-        bodyElements.add(new BodyElement(startingX, startingY, BodyType.HEAD));
-        for (int i = 1; i < length; i++) {
-            bodyElements.add(new BodyElement(startingX, startingY - i, BodyType.TAIL));
+    public SnakeBody(Position initialPosition, int initialLength) {
+        this.bodySegments = new ArrayList<>();
+        for(int i = 0; i < initialLength; i++) {
+            Position segment = new Position(initialPosition.getX(), initialPosition.getY() - i);
+            this.bodySegments.add(segment);
         }
     }
 
-    /**
-     * Returns the X coordinate of the snake's head.
-     *
-     * @return the X coordinate of the head of the snake.
-     */
-    public int getHeadXCoordinate() {
-        return bodyElements.getFirst().posX();
+    public void addNewHead(Position newHead) {
+        bodySegments.addFirst(newHead);
     }
 
-    /**
-     * Returns the Y coordinate of the snake's head.
-     *
-     * @return the Y coordinate of the head of the snake.
-     */
-    public int getHeadYCoordinate() {
-        return bodyElements.getFirst().posY();
+    public void removeLastBodySegment() {
+        if (bodySegments.size() > 1) {
+            bodySegments.removeLast();
+        }
     }
 
-    /**
-     * Returns the X coordinate of the snake's tail element at the specified position.
-     *
-     * @param position the index of the body element.
-     * @return the X coordinate of the tail element at the given position.
-     */
-    public int getTailXCoordinate(int position) {
-        return bodyElements.get(position).posX();
+    public Position getHead() {
+        return bodySegments.getFirst();
     }
 
-    /**
-     * Returns the Y coordinate of the snake's tail element at the specified position.
-     *
-     * @param position the index of the body element.
-     * @return the Y coordinate of the tail element at the given position.
-     */
-    public int getTailYCoordinate(int position) {
-        return bodyElements.get(position).posY();
+    public Position getBodySegment(int index) {
+        return bodySegments.get(index);
     }
 
-    /**
-     * Sets a new head for the snake by adding a {@link BodyElement} at the specified coordinates.
-     * The previous head is updated to a tail part.
-     *
-     * @param newX the X coordinate for the new head.
-     * @param newY the Y coordinate for the new head.
-     */
-    public void setNewHead(int newX, int newY) {
-        bodyElements.addFirst(new BodyElement(newX, newY, BodyType.HEAD));
-        bodyElements.set(1, new BodyElement(bodyElements.get(1).posX(), bodyElements.get(1).posY(), BodyType.TAIL));
-    }
-
-    /**
-     * Removes the last element of the snake's body, typically used during movement.
-     */
-    public void removeLastElement() {
-        bodyElements.removeLast();
-    }
-
-    /**
-     * Returns the current size of the snake's body, which is the number of {@link BodyElement}s.
-     *
-     * @return the size of the snake.
-     */
     public int getSize() {
-        return bodyElements.size();
+        return bodySegments.size();
     }
 }
 

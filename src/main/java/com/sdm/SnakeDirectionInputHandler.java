@@ -1,5 +1,9 @@
 package com.sdm;
 
+import com.sdm.snake.movement.MovementDownState;
+import com.sdm.snake.movement.MovementLeftState;
+import com.sdm.snake.movement.MovementRightState;
+import com.sdm.snake.movement.MovementUpState;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 import com.sdm.snake.*;
@@ -14,10 +18,10 @@ public class SnakeDirectionInputHandler implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent keyEvent) {
         switch (keyEvent.getCode()) {
-            case W -> snake.setDirection(Direction.UP);
-            case S -> snake.setDirection(Direction.DOWN);
-            case A -> snake.setDirection(Direction.LEFT);
-            case D -> snake.setDirection(Direction.RIGHT);
+            case W -> snake.changeSnakeMovementState(new MovementUpState());
+            case S -> snake.changeSnakeMovementState(new MovementDownState());
+            case A -> snake.changeSnakeMovementState(new MovementLeftState());
+            case D -> snake.changeSnakeMovementState(new MovementRightState());
         }
     }
 }

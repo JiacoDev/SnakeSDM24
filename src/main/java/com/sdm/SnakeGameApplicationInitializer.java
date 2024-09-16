@@ -1,6 +1,7 @@
 package com.sdm;
 
 import com.sdm.snake.Snake;
+import com.sdm.snake.movement.MovementUpState;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
@@ -22,7 +23,7 @@ public class SnakeGameApplicationInitializer extends Application {
 
         Dimension dim = new Dimension();
 
-        Snake startSnake = new Snake(snakeStartingXCoordinate, snakeStartingYCoordinate, snakeStartingLength);
+        Snake startSnake = new Snake(new Position(snakeStartingXCoordinate,snakeStartingYCoordinate), new MovementUpState(), snakeStartingLength);
         Board startBoard = new Board(dim.getBoardStartingWidth(), dim.getBoardStartingHeight());
         Fruit startFruit = new Fruit(fruitStartingXCoordinate,fruitStartingYCoordinate);
 

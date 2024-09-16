@@ -2,6 +2,7 @@ module com.sdm {
     requires javafx.controls;
     requires javafx.fxml;
     requires org.controlsfx.controls;
+    requires java.desktop;
 
     opens com.sdm to javafx.fxml;
     exports com.sdm;
