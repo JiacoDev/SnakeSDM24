@@ -82,22 +82,7 @@ public class Graphic {
 
         pane.getChildren().add(circle);
 
-        rectangle = new Rectangle();
-
-        rectangle.setFill(color);
-        rectangle.setHeight(dimension.getDim());
-        rectangle.setWidth(dimension.getDim());
-        rectangle.setX((snake.getBody().getHead().getX() + SPACEx)*dimension.getDim() - dimension.getDim());
-        rectangle.setY((board.height() - snake.getBody().getHead().getY() + SPACEy)*dimension.getDim() - dimension.getDim());
-        rectangle.setArcWidth(10);
-        rectangle.setArcHeight(10);
-        rectangle.setOpacity(0.8);
-
-        pane.getChildren().add(rectangle);
-
-
-
-        for(int i = 1; i < snake.getBody().getSize(); i++){
+        for(int i = 0; i < snake.getBody().getSize(); i++){
             rectangle = new Rectangle();
             rectangle.setFill(color);
             rectangle.setHeight(dimension.getDim());
