@@ -14,38 +14,26 @@ public class Menu {
 
     public static Pane drawMenu(GameLoop gameLoop) {
 
-        // Creazione del titolo
-        Text title = new Text("Snake Game");
-        title.setStyle("-fx-font-size: 30px; -fx-font-weight: bold;");
-
-        // Bottone per avviare il gioco
-        Button playButton = createPlayButton(gameLoop);
-
-        // Bottone per uscire dall'applicazione
-        Button exitButton = new Button("Esci");
-        exitButton.setStyle(getButtonStyle());
-        exitButton.setOnAction(r -> handleExitButtonClick());
-
-
-        // Layout per il menu
-        VBox menuLayout = new VBox(20);
-        menuLayout.setAlignment(Pos.CENTER);
-        menuLayout.getChildren().addAll(title, playButton, exitButton);
-
-
         StackPane stackPane = Nokia3310.drawNokia3310();
-        stackPane.getChildren().add(menuLayout); // L'immagine Ã¨ sotto, il menu sopra
+
+        stackPane.getChildren().add(menuAssemble(gameLoop)); // L'immagine Ã¨ sotto, il menu sopra
 
         return stackPane;
     }
 
-    private static Button createPlayButton(AnimationTimer gameLoop) {
+    private static Button drawPlayButton(AnimationTimer gameLoop) {
         Button playButton = new Button("Gioca");
         playButton.setStyle(getButtonStyle());
 
         // Assegnazione dell'azione al click del pulsante
         playButton.setOnAction(r -> handlePlayButtonClick(gameLoop));
         return playButton;
+    }
+    private static Button drawExitButton() {
+        Button exitButton = new Button("Esci");
+        exitButton.setStyle(getButtonStyle());
+        exitButton.setOnAction(r -> handleExitButtonClick());
+        return exitButton;
     }
 
     // Metodo per gestire l'azione del pulsante
@@ -59,5 +47,22 @@ public class Menu {
     }
     private static void handleExitButtonClick() {
         Platform.exit();
+    }
+    private static Text drawTitle(){
+        Text title = new Text("Snake Game");
+        title.setStyle("-fx-font-size: 30px; -fx-font-weight: bold;");
+        return title;
+    }
+    private static VBox menuAssemble(GameLoop gameLoop){
+        // Layout per il menu
+        VBox menuLayout = new VBox(20);
+
+        menuLayout.setAlignment(Pos.CENTER);
+
+        menuLayout.getChildren().add(drawTitle());
+        menuLayout.getChildren().add(drawPlayButton(gameLoop));
+        menuLayout.getChildren().add(drawExitButton());
+
+        return menuLayout;
     }
 }
