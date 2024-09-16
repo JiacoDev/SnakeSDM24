@@ -15,7 +15,7 @@ import javafx.scene.shape.Rectangle;
  * <p>This class is used to create a styled game window that resembles the Nokia 3310 phone,
  * providing a visually distinct border and background for the game.</p>
  *
- * <h3>Class Overview:</h3>
+ * Class Overview:
  * <ul>
  *   <li>Creates an image view for the phone border.</li>
  *   <li>Creates a background screen rectangle with a specified color.</li>

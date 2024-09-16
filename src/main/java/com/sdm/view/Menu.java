@@ -16,7 +16,7 @@ import javafx.scene.text.Text;
  *
  * <p>This class sets up a user interface menu displayed on the screen, allowing the player to either start the game or exit the application.</p>
  *
- * <h3>Class Overview:</h3>
+ * Class Overview:
  * <ul>
  *   <li>Creates and returns the main menu pane.</li>
  *   <li>Includes buttons for starting the game and exiting the application.</li>

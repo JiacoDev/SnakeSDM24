@@ -16,7 +16,7 @@ import java.util.stream.IntStream;
  * <p>This class provides a method to move the fruit to a random position and a method to set a custom random generator,
  * which can be useful for testing or seeding specific randomness.</p>
  *
- * <h3>Class Overview:</h3>
+ * Class Overview:
  * <ul>
  *   <li>Handles fruit positioning on the game board.</li>
  *   <li>Ensures the fruit doesn't overlap with the snake's current position.</li>

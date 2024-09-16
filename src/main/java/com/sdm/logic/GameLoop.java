@@ -14,7 +14,7 @@ import javafx.animation.AnimationTimer;
  * <p>It includes methods to update the game state, render the game objects, and manage the game speed.
  * The game loop will continue running until the game ends, such as when the snake collides with itself or the walls.</p>
  *
- * <h3>Class Overview:</h3>
+ * Class Overview:
  * <ul>
  *   <li>Manages the game's core loop using JavaFX's {@code AnimationTimer}.</li>
  *   <li>Updates the game state on each frame, including the snake's movement and fruit interactions.</li>

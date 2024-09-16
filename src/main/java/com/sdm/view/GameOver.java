@@ -16,7 +16,7 @@ import javafx.scene.text.Text;
  * <p>The class uses a Nokia 3310 frame as the background for the game over screen, giving the interface
  * a retro appearance. The game over scene is created with a message, score display, and an option to exit the game.</p>
  *
- * <h3>Class Overview:</h3>
+ * Class Overview:
  * <ul>
  *   <li>Creates and returns a {@code StackPane} with the game over scene.</li>
  *   <li>Includes a message, final score display, and an exit button.</li>

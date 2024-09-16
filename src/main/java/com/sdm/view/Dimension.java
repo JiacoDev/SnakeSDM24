@@ -9,7 +9,7 @@ package com.sdm.view;
  * and applies a scaling factor to ensure the game is displayed properly on the screen. It also allows setting the initial
  * dimensions of the game board.</p>
  *
- * <h3>Class Overview:</h3>
+ * Class Overview:
  * <ul>
  *   <li>Defines the dimensions for the game board and window.</li>
  *   <li>Applies scaling to calculate window dimensions based on the size of the board.</li>
@@ -18,8 +18,8 @@ package com.sdm.view;
  */
 
 public class Dimension {
-    private static int boardStartingWidth;
-    private static int boardStartingHeight;
+    private static int boardWidth;
+    private static int boardHeight;
     private static final int squareDimension = 15;
 
     /**
@@ -31,7 +31,7 @@ public class Dimension {
      * @return the width of the game window in pixels
      */
     public static double getWindow_width() {
-        return scale(((boardStartingWidth + 2 + Graphic.HORIZONTAL_GAP * 2) / 7) * 9);
+        return scale(((boardWidth + 2 + Graphic.HORIZONTAL_GAP * 2) / 7) * 9);
     }
 
     /**
@@ -43,7 +43,7 @@ public class Dimension {
      * @return the height of the game window in pixels
      */
     public static double getWindow_height() {
-        return scale(((boardStartingHeight + 2 + Graphic.VERTICAL_GAP * 2) / 5) * 9);
+        return scale(((boardHeight + 2 + Graphic.VERTICAL_GAP * 2) / 5) * 9);
     }
 
     /**
@@ -53,8 +53,8 @@ public class Dimension {
      * @param height the height of the game board
      */
     public static void setDimension(int width, int height) {
-        boardStartingWidth = width;
-        boardStartingHeight = height;
+        boardWidth = width;
+        boardHeight = height;
     }
 
     /**

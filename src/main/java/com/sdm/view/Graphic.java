@@ -25,7 +25,7 @@ import javafx.scene.text.Text;
  * a {@code Pane} and setting their styles and positions. The rendered elements are then added to a {@code StackPane}
  * which can be displayed as part of the game scene.</p>
  *
- * <h3>Class Overview:</h3>
+ * Class Overview:
  * <ul>
  *   <li>Draws the game board, including its boundaries.</li>
  *   <li>Draws the snake, fruit, and current score.</li>

@@ -8,7 +8,7 @@ package com.sdm.model;
  * <p>The class provides methods to access the x and y coordinates of the position,
  * and to check if two positions are equal.</p>
  *
- * <h3>Class Overview:</h3>
+ * Class Overview:
  * <ul>
  *   <li>Stores x and y coordinates.</li>
  *   <li>Provides methods to get the x and y coordinates.</li>

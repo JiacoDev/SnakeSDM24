@@ -25,7 +25,7 @@ import javafx.stage.Stage;
  * <p>This class defines the initial conditions for the snake's position, fruit location, and the game board size.
  * It handles the setup of game rendering and input control mechanisms for the player to interact with the snake.</p>
  *
- * <h3>Class Overview:</h3>
+ * Class Overview:
  * <ul>
  *   <li>Initializes the game board, snake, and fruit with default starting positions.</li>
  *   <li>Sets up the game window using JavaFX and adds event listeners for player input (keyboard controls).</li>

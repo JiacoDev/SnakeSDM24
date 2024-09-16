@@ -7,7 +7,7 @@ package com.sdm.model;
  *
  * <p>The class provides methods to get and set the position of the fruit.</p>
  *
- * <h3>Class Overview:</h3>
+ * Class Overview:
  * <ul>
  *   <li>Stores the position of the fruit.</li>
  *   <li>Provides methods to get and set the fruit's position.</li>

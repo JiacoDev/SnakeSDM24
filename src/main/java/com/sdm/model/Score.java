@@ -7,7 +7,7 @@ package com.sdm.model;
  * <p>The score starts at 0 and is increased by a specified amount, which is multiplied by 10,
  * whenever the player earns points.</p>
  *
- * <h3>Class Overview:</h3>
+ * Class Overview:
  * <ul>
  *   <li>Initializes the score to 0.</li>
  *   <li>Provides methods to add points to the score and retrieve the current score.</li>

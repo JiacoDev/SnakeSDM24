@@ -15,7 +15,7 @@ import javafx.scene.input.KeyEvent;
  * <p>This class provides a way for players to control the snake's direction during gameplay by switching between different movement states,
  * which are represented by {@code MovementUpState}, {@code MovementDownState}, {@code MovementLeftState}, and {@code MovementRightState}.</p>
  *
- * <h3>Class Overview:</h3>
+ * Class Overview:
  * <ul>
  *   <li>Handles keyboard inputs for controlling the snake's direction.</li>
  *   <li>Uses the {@code Snake} object's movement state to change the snake's movement based on key events.</li>

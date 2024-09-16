@@ -13,7 +13,7 @@ import javafx.scene.Scene;
  * <p>This class interacts with the JavaFX {@code Scene} to draw the game state, including the snake, fruit, board, and score.
  * It also provides functionality to switch to a game over screen when the game ends.</p>
  *
- * <h3>Class Overview:</h3>
+ * Class Overview:
  * <ul>
  *   <li>Renders the game elements on the screen.</li>
  *   <li>Displays the game over screen when the game ends.</li>
