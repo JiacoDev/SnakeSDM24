@@ -46,22 +46,7 @@ public class Graphic {
 
         //---Snake
 
-        Rectangle rectangle;
-
-        for(int i = 0; i < snake.getBody().getSize(); i++){
-            rectangle = new Rectangle();
-
-            setDrawStyle(rectangle);
-
-            rectangle.setHeight(Dimension.getSquareDimension());
-            rectangle.setWidth(Dimension.getSquareDimension());
-            rectangle.setX((snake.getBody().getBodySegment(i).getX() + SPACEx)*Dimension.getSquareDimension() - Dimension.getSquareDimension());
-            rectangle.setY(((board.height() - snake.getBody().getBodySegment(i).getY())+ SPACEy)*Dimension.getSquareDimension() - Dimension.getSquareDimension());
-            rectangle.setArcWidth(10);
-            rectangle.setArcHeight(10);
-
-            pane.getChildren().add(rectangle);
-        }
+        drawSnake(snake,board,pane);
 
         Text text = new Text();
         setDrawStyle(text);
@@ -96,28 +81,43 @@ public class Graphic {
         shape.setOpacity(opacity);
     }
 
+    private static void setDimension(Rectangle rectangle, double width, double height){
+        rectangle.setWidth(width);
+        rectangle.setHeight(height);
+    }
+
+    private static void setPosition(Rectangle rectangle, double x, double y){
+        rectangle.setX(x);
+        rectangle.setY(y);
+    }
+
+    private static void setPosition(Circle circle, double x, double y){
+        circle.setCenterX(x);
+        circle.setCenterY(y);
+    }
+
     private static Rectangle drawHorizontalLine(Board board, double yPosition){
 
         Rectangle rectangle = new Rectangle();
+
         setDrawStyle(rectangle);
 
-        rectangle.setWidth((board.width()-1)*Dimension.getSquareDimension());
-        rectangle.setHeight(Dimension.getSquareDimension());
-        rectangle.setX((SPACEx)*Dimension.getSquareDimension());
-        rectangle.setY((yPosition - 1 + SPACEy)*Dimension.getSquareDimension());
+        setDimension(rectangle, (board.width()-1)*Dimension.getSquareDimension(), Dimension.getSquareDimension());
+
+        setPosition(rectangle, (SPACEx)*Dimension.getSquareDimension(), (yPosition - 1 + SPACEy)*Dimension.getSquareDimension());
 
         return rectangle;
     }
     private static Rectangle drawVerticalLine(Board board, double xPosition){
 
         Rectangle rectangle = new Rectangle();
+
         setDrawStyle(rectangle);
 
-        rectangle.setWidth(Dimension.getSquareDimension());
-        rectangle.setHeight((board.height() + 1)*Dimension.getSquareDimension());
-        rectangle.setX((xPosition - 1 + SPACEx)*Dimension.getSquareDimension());
-        rectangle.setY((SPACEy - 1)*Dimension.getSquareDimension());
-        
+        setDimension(rectangle,Dimension.getSquareDimension(),(board.height() + 1)*Dimension.getSquareDimension());
+
+        setPosition(rectangle, (xPosition - 1 + SPACEx)*Dimension.getSquareDimension(), (SPACEy - 1)*Dimension.getSquareDimension());
+
         return rectangle;
     }
     private static Circle drawFruit(Fruit fruit , Board board){
@@ -127,10 +127,30 @@ public class Graphic {
         setDrawStyle(circle);
 
         circle.setRadius((double) Dimension.getSquareDimension() /3);
-        circle.setCenterX((fruit.getPosition().getX() + SPACEx)*Dimension.getSquareDimension() - ((double) Dimension.getSquareDimension() /2));
-        circle.setCenterY((board.height() - fruit.getPosition().getY() + SPACEy)*Dimension.getSquareDimension() + ((double) Dimension.getSquareDimension() /2) - Dimension.getSquareDimension());
+
+        setPosition(circle,(fruit.getPosition().getX() + SPACEx)*Dimension.getSquareDimension() - ((double) Dimension.getSquareDimension() /2),(board.height() - fruit.getPosition().getY() + SPACEy)*Dimension.getSquareDimension() + ((double) Dimension.getSquareDimension() /2) - Dimension.getSquareDimension());
 
         return circle;
+    }
+    private static void drawSnake(Snake snake, Board board, Pane pane){
+        Rectangle rectangle;
+
+        for(int i = 0; i < snake.getBody().getSize(); i++){
+
+            rectangle = new Rectangle();
+
+            setDrawStyle(rectangle);
+
+            setDimension(rectangle, Dimension.getSquareDimension(), Dimension.getSquareDimension());
+
+            setPosition(rectangle, (snake.getBody().getBodySegment(i).getX() + SPACEx)*Dimension.getSquareDimension() - Dimension.getSquareDimension(), ((board.height() - snake.getBody().getBodySegment(i).getY())+ SPACEy)*Dimension.getSquareDimension() - Dimension.getSquareDimension());
+
+            rectangle.setArcWidth(10);
+            rectangle.setArcHeight(10);
+
+            pane.getChildren().add(rectangle);
+
+        }
     }
 
 }
