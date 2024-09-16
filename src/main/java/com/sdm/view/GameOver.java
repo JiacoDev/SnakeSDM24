@@ -13,30 +13,44 @@ public class GameOver {
 
     public static Pane createGameOverScene(Score score) {
 
-        // Scrive Game Over
-        Text title = new Text("GAME OVER");
-        title.setStyle("-fx-font-size: 30px; -fx-font-weight: bold;");
-
-        // Riporta il punteggio finale
-        Text scoreText = new Text("Score: " + score.getScore());
-        scoreText.setStyle("-fx-font-size: 20px; -fx-font-weight: bold;");
-
-        Button returnButton = new Button("Exit");
-        returnButton.setStyle(getButtonStyle());
-        returnButton.setOnAction(_ -> Platform.exit());
-
-        // Layout per il menu
-        VBox menuLayout = new VBox(20);
-        menuLayout.setAlignment(Pos.CENTER);
-        menuLayout.getChildren().addAll(title, scoreText, returnButton);
-
         StackPane stackPane = Nokia3310.drawNokia3310();
-        stackPane.getChildren().add(menuLayout);
+        stackPane.getChildren().add(gameOverAssemble(score));
 
         return stackPane;
     }
 
+    private static Text getGameOverMessage() {
+        Text gameOverMessage = new Text("GAME OVER");
+        gameOverMessage.setStyle("-fx-font-size: 30px; -fx-font-weight: bold;");
+        return gameOverMessage;
+    }
+
+    private static Text getScoreMessage(Score score) {
+        // Riporta il punteggio finale
+        Text scoreMessage = new Text("Score: " + score.getScore());
+        scoreMessage.setStyle("-fx-font-size: 20px; -fx-font-weight: bold;");
+        return scoreMessage;
+    }
+
     private static String getButtonStyle() {
         return "-fx-font-size: 20px; -fx-background-color: #808000; -fx-text-fill: black; -fx-font-weight: bold;";
+    }
+
+    private static Button drawExitButton() {
+        Button exitButton = new Button("Esci");
+        exitButton.setStyle(getButtonStyle());
+        exitButton.setOnAction(r -> handleExitButtonClick());
+        return exitButton;
+    }
+
+    private static void handleExitButtonClick() {
+        Platform.exit();
+    }
+
+    private static VBox gameOverAssemble(Score score) {
+        VBox gameOverLayout = new VBox(20);
+        gameOverLayout.setAlignment(Pos.CENTER);
+        gameOverLayout.getChildren().addAll(getGameOverMessage(), getScoreMessage(score), drawExitButton());
+        return gameOverLayout;
     }
 }
