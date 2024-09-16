@@ -28,7 +28,7 @@ class CollisionHandlerTest {
     void setUp() {
         snake = new Snake(new Position(STARTING_X, STARTING_Y), new MovementUpState(),STARTING_LENGTH);
         board = new Board(BOARD_WIDTH,BOARD_HEIGHT);
-        fruit = new Fruit(0,0);
+        fruit = new Fruit(new Position(0,0));
     }
 
     @Test
@@ -45,8 +45,7 @@ class CollisionHandlerTest {
 
     @Test
     void checkCollisionWithFruit() {
-        fruit.setPosX(20);
-        fruit.setPosY(21);
+        fruit.setPosition(new Position(20,21));
         snake.move();
 
         Assertions.assertEquals(GameState.EAT,CollisionHandler.checkCollision(snake,fruit,board));

@@ -1,5 +1,6 @@
 package com.sdm.main;
 
+import com.sdm.logic.FruitSpawnHandler;
 import com.sdm.logic.GameLoop;
 import com.sdm.logic.SnakeDirectionInputHandler;
 import com.sdm.model.Board;
@@ -19,21 +20,21 @@ import javafx.stage.Stage;
 
 
 public class SnakeGameApplicationInitializer extends Application {
-
-    private final int snakeStartingXCoordinate = 5;
-    private final int snakeStartingYCoordinate = 5;
-    private final int snakeStartingLength = 3;
-    private final int fruitStartingXCoordinate = 1;
-    private final int fruitStartingYCoordinate = 1;
-
     @Override
     public void start(Stage stage){
+
+        final int snakeStartingXCoordinate = 5;
+        final int snakeStartingYCoordinate = 5;
+        final int snakeStartingLength = 3;
+        final int fruitStartingXCoordinate = 1;
+        final int fruitStartingYCoordinate = 1;
 
         Dimension dim = new Dimension();
 
         Snake startSnake = new Snake(new Position(snakeStartingXCoordinate,snakeStartingYCoordinate), new MovementUpState(), snakeStartingLength);
         Board startBoard = new Board(dim.getBoardStartingWidth(), dim.getBoardStartingHeight());
-        Fruit startFruit = new Fruit(fruitStartingXCoordinate,fruitStartingYCoordinate);
+        Fruit startFruit = new Fruit(new Position(fruitStartingXCoordinate,fruitStartingYCoordinate));
+        FruitSpawnHandler.randomFruitMove(startSnake, startFruit, startBoard);
 
         Scene scene = new Scene(new Pane(), dim.getWindow_X(), dim.getWindow_Y());
         stage.setTitle("SNAKE!");

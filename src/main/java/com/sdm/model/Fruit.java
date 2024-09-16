@@ -1,27 +1,17 @@
 package com.sdm.model;
 
 public class Fruit {
-    private int posX;
-    private int posY;
+    private Position position;
 
-    public Fruit(int posX, int posY) {
-        this.posX = posX;
-        this.posY = posY;
+    public Fruit(Position position) {
+        this.position = position;
     }
 
-    public int getPosX() {
-        return posX;
+    public Position getPosition() {
+        return position;
     }
 
-    public void setPosX(int posX) {
-        this.posX = posX;
-    }
-
-    public int getPosY() {
-        return posY;
-    }
-
-    public void setPosY(int posY) {
-        this.posY = posY;
+    public void setPosition(Position position) {
+        this.position = position;
     }
 }

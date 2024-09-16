@@ -2,6 +2,7 @@ package com.sdm.logic;
 
 import com.sdm.model.Board;
 import com.sdm.model.Fruit;
+import com.sdm.model.Position;
 import com.sdm.model.snake.Snake;
 
 import java.util.Random;
@@ -16,10 +17,9 @@ public class FruitSpawnHandler {
 
     public static void randomFruitMove(Snake snake, Fruit fruit, Board board) {
         do {
-            fruit.setPosX(rand.nextInt(1, board.width()));
-            fruit.setPosY(rand.nextInt(1, board.height()));
+            fruit.setPosition(new Position(rand.nextInt(1, board.width()),rand.nextInt(1, board.height())));
         } while (IntStream.range(0, snake.getSize()).anyMatch(
-                j -> snake.getBody().getBodySegment(j).getX() == fruit.getPosX() &&
-                        snake.getBody().getBodySegment(j).getY() == fruit.getPosY()));
+                j -> snake.getBody().getBodySegment(j).getX() == fruit.getPosition().getX() &&
+                        snake.getBody().getBodySegment(j).getY() == fruit.getPosition().getY()));
     }
 }

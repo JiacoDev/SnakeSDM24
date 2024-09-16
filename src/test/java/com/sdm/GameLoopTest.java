@@ -41,7 +41,7 @@ class GameLoopTest {
     void setUp() {
         board = new Board(BOARD_WIDTH, BOARD_HEIGHT);
         snake = new Snake(new Position(STARTING_X, STARTING_Y), new MovementUpState(), STARTING_LENGTH);
-        fruit = new Fruit(FRUIT_STARTING_X, FRUIT_STARTING_Y);
+        fruit = new Fruit(new Position(FRUIT_STARTING_X, FRUIT_STARTING_Y));
         score = new Score();
 
         drawHandlerMock = Mockito.mock(DrawHandler.class);
@@ -64,8 +64,7 @@ class GameLoopTest {
 
     @Test
     void testGameLoopEat() {
-        fruit.setPosX(STARTING_X);
-        fruit.setPosY(STARTING_Y);
+        fruit.setPosition(new Position(STARTING_X,STARTING_Y));
         gameLoop.handle(1L);
         gameLoop.handle(10);
         Assertions.assertNotEquals(STARTING_LENGTH + 1, snake.getSize());

@@ -81,8 +81,8 @@ public class Graphic {
 
         setDrawStyle(circle);
         circle.setRadius((double) dimension.getDim() /3);
-        circle.setCenterX((fruit.getPosX() + SPACEx)*dimension.getDim() - ((double) dimension.getDim() /2));
-        circle.setCenterY((board.height() - fruit.getPosY() + SPACEy)*dimension.getDim() + ((double) dimension.getDim() /2) - dimension.getDim());
+        circle.setCenterX((fruit.getPosition().getX() + SPACEx)*dimension.getDim() - ((double) dimension.getDim() /2));
+        circle.setCenterY((board.height() - fruit.getPosition().getY() + SPACEy)*dimension.getDim() + ((double) dimension.getDim() /2) - dimension.getDim());
 
 
         pane.getChildren().add(circle);

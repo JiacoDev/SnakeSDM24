@@ -29,7 +29,7 @@ class FruitSpawnHandlerTest {
     void setUp() {
         snake = new Snake(new Position(STARTING_X, STARTING_Y), new MovementUpState(),STARTING_LENGTH);
         board = new Board(BOARD_WIDTH,BOARD_HEIGHT);
-        fruit = new Fruit(0,0);
+        fruit = new Fruit(new Position(FRUIT_STARTING_X,FRUIT_STARTING_Y));
     }
 
     @Test
@@ -43,13 +43,12 @@ class FruitSpawnHandlerTest {
 
         // Verifico che il frutto non sia nella coda del serpente
         for (int j = 0; j < snake.getSize(); j++) {
-            Assertions.assertNotEquals(snake.getBodySegment(j), fruit.getPosX());
-            Assertions.assertNotEquals(snake.getBodySegment(j), fruit.getPosY());
+            Assertions.assertNotEquals(snake.getBodySegment(j), fruit.getPosition());
         }
 
         // Verifico che il frutto sia nella nuova posizione (8,8)
-        Assertions.assertEquals(8, fruit.getPosX());
-        Assertions.assertEquals(8, fruit.getPosY());
+        Assertions.assertEquals(8, fruit.getPosition().getX());
+        Assertions.assertEquals(8, fruit.getPosition().getY());
     }
 
 }

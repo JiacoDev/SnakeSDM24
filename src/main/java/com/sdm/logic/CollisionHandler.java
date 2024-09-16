@@ -59,7 +59,7 @@ public class CollisionHandler {
      * @return true if the snake has collided with the fruit, false otherwise
      */
     private static boolean checkCollisionWithFruit(Snake snake, Fruit fruit) {
-        return snake.getBody().getHead().getX() == fruit.getPosX() && snake.getBody().getHead().getY() == fruit.getPosY();
+        return snake.getBody().getHead().getX() == fruit.getPosition().getX() && snake.getBody().getHead().getY() == fruit.getPosition().getY();
     }
 
     /**
