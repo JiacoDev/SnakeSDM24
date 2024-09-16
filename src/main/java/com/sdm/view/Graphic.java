@@ -33,10 +33,10 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 public class Graphic {
-    final static double SPACEx = 2;
-    final static double SPACEy = 1;
-    final static Color color = Color.BLACK;
-    final static double opacity = 0.8;
+    final static double HORIZONTAL_GAP = 2;
+    final static double VERTICAL_GAP = 1;
+    final static Color COLOR = Color.BLACK;
+    final static double OPACITY = 0.8;
 
     /**
      * Draws the current state of the game including the snake, fruit, board, and score.
@@ -64,7 +64,7 @@ public class Graphic {
         StackPane stackPane = Nokia3310.drawNokia3310();
         stackPane.getChildren().add(pane);
         StackPane.setAlignment(pane, Pos.CENTER);
-        StackPane.setMargin(pane, new Insets(Dimension.getWindow_Y() / 9 + Dimension.scale(1.5), 0, 0, Dimension.getWindow_X() / 9 + Dimension.scale(1.5)));
+        StackPane.setMargin(pane, new Insets(Dimension.getWindow_height() / 9 + Dimension.scale(1.5), 0, 0, Dimension.getWindow_width() / 9 + Dimension.scale(1.5)));
 
         return stackPane;
     }
@@ -75,8 +75,8 @@ public class Graphic {
      * @param shape the {@code Shape} to style
      */
     private static void setDrawStyle(Shape shape) {
-        shape.setFill(color);
-        shape.setOpacity(opacity);
+        shape.setFill(COLOR);
+        shape.setOpacity(OPACITY);
     }
 
     /**
@@ -140,7 +140,7 @@ public class Graphic {
         Rectangle rectangle = new Rectangle();
         setDrawStyle(rectangle);
         setDimension(rectangle, board.width() - 1, 1);
-        setPosition(rectangle, SPACEx, yPosition - 1 + SPACEy);
+        setPosition(rectangle, HORIZONTAL_GAP, yPosition - 1 + VERTICAL_GAP);
         return rectangle;
     }
 
@@ -157,7 +157,7 @@ public class Graphic {
         Rectangle rectangle = new Rectangle();
         setDrawStyle(rectangle);
         setDimension(rectangle, 1, board.height() + 1);
-        setPosition(rectangle, xPosition - 1 + SPACEx, SPACEy - 1);
+        setPosition(rectangle, xPosition - 1 + HORIZONTAL_GAP, VERTICAL_GAP - 1);
         return rectangle;
     }
 
@@ -174,7 +174,7 @@ public class Graphic {
         Circle circle = new Circle();
         setDrawStyle(circle);
         circle.setRadius(Dimension.scale((double) 1 / 3));
-        setPosition(circle, fruit.getPosition().getX() + SPACEx - (double) 1 / 2, board.height() - fruit.getPosition().getY() + SPACEy - (double) 1 / 2);
+        setPosition(circle, fruit.getPosition().getX() + HORIZONTAL_GAP - (double) 1 / 2, board.height() - fruit.getPosition().getY() + VERTICAL_GAP - (double) 1 / 2);
         return circle;
     }
 
@@ -193,7 +193,7 @@ public class Graphic {
             rectangle = new Rectangle();
             setDrawStyle(rectangle);
             setDimension(rectangle, 1, 1);
-            setPosition(rectangle, snake.getBodySegment(i).getX() + SPACEx - 1, board.height() - snake.getBodySegment(i).getY() + SPACEy - 1);
+            setPosition(rectangle, snake.getBodySegment(i).getX() + HORIZONTAL_GAP - 1, board.height() - snake.getBodySegment(i).getY() + VERTICAL_GAP - 1);
             rectangle.setArcWidth(10);
             rectangle.setArcHeight(10);
             pane.getChildren().add(rectangle);
@@ -214,7 +214,7 @@ public class Graphic {
         setDrawStyle(text);
         text.setText("SCORE: " + score.getScore());
         text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, Dimension.scale(1)));
-        setPosition(text, SPACEx - 1, board.height() + SPACEy + 1);
+        setPosition(text, HORIZONTAL_GAP - 1, board.height() + VERTICAL_GAP + 1);
         return text;
     }
 }

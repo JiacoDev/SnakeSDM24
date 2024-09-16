@@ -36,13 +36,13 @@ public class Nokia3310 {
 
     private static ImageView drawPhone() {
         ImageView phone = new ImageView(new Image("file:src/main/resources/com/sdm/images/nokiaBorderV2.png"));
-        phone.setFitWidth(Dimension.getWindow_X()); // Set width of the image
-        phone.setFitHeight(Dimension.getWindow_Y()); // Set height of the image
+        phone.setFitWidth(Dimension.getWindow_width()); // Set width of the image
+        phone.setFitHeight(Dimension.getWindow_height()); // Set height of the image
         return phone;
     }
 
     private static Rectangle drawScreen() {
-        return new Rectangle(Dimension.getWindow_X(), Dimension.getWindow_Y(), Color.OLIVE);
+        return new Rectangle(Dimension.getWindow_width(), Dimension.getWindow_height(), Color.OLIVE);
     }
 
     private static StackPane nokia3310Assemble() {

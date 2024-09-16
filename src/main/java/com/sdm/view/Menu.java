@@ -48,7 +48,7 @@ public class Menu {
      * @return a {@code Button} for starting the game
      */
     private static Button drawPlayButton(AnimationTimer gameLoop) {
-        Button playButton = new Button("Gioca");
+        Button playButton = new Button("Game");
         playButton.setStyle(getButtonStyle());
         playButton.setOnAction(r -> handlePlayButtonClick(gameLoop));
         return playButton;
@@ -62,7 +62,7 @@ public class Menu {
      * @return a {@code Button} for exiting the application
      */
     private static Button drawExitButton() {
-        Button exitButton = new Button("Esci");
+        Button exitButton = new Button("Exit");
         exitButton.setStyle(getButtonStyle());
         exitButton.setOnAction(r -> handleExitButtonClick());
         return exitButton;

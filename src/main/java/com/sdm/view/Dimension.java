@@ -28,8 +28,8 @@ public class Dimension {
      *
      * @return the width of the game window in pixels
      */
-    public static double getWindow_X() {
-        return scale(((boardStartingWidth + 2 + Graphic.SPACEx * 2) / 7) * 9);
+    public static double getWindow_width() {
+        return scale(((boardStartingWidth + 2 + Graphic.HORIZONTAL_GAP * 2) / 7) * 9);
     }
 
     /**
@@ -40,8 +40,8 @@ public class Dimension {
      *
      * @return the height of the game window in pixels
      */
-    public static double getWindow_Y() {
-        return scale(((boardStartingHeight + 2 + Graphic.SPACEy * 2) / 5) * 9);
+    public static double getWindow_height() {
+        return scale(((boardStartingHeight + 2 + Graphic.VERTICAL_GAP * 2) / 5) * 9);
     }
 
     /**
