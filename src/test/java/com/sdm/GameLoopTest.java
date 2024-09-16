@@ -2,6 +2,10 @@ package com.sdm;
 
 import com.sdm.snake.Direction;
 import com.sdm.snake.Snake;
+import com.sdm.snake.movement.MovementDownState;
+import com.sdm.snake.movement.MovementLeftState;
+import com.sdm.snake.movement.MovementRightState;
+import com.sdm.snake.movement.MovementUpState;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -31,16 +35,16 @@ class GameLoopTest {
     @BeforeEach
     void setUp() {
         board = new Board(BOARD_WIDTH, BOARD_HEIGHT);
-        snake = new Snake(STARTING_X, STARTING_Y, STARTING_LENGTH);
+        snake = new Snake(new Position(STARTING_X, STARTING_Y), new MovementUpState(), STARTING_LENGTH);
         fruit = new Fruit(FRUIT_STARTING_X, FRUIT_STARTING_Y);
         score = new Score();
 
         drawHandlerMock = Mockito.mock(DrawHandler.class);
 
-        gameLoop = new GameLoop(snake,board,fruit,drawHandlerMock);
+        gameLoop = new GameLoop(snake, board, fruit, drawHandlerMock);
 
-        Mockito.doNothing().when(drawHandlerMock).draw(snake,fruit,board,score);
-        Mockito.doNothing().when(drawHandlerMock).drawGameOver(score,gameLoop);
+        Mockito.doNothing().when(drawHandlerMock).draw(snake, fruit, board, score);
+        Mockito.doNothing().when(drawHandlerMock).drawGameOver(score, gameLoop);
 
     }
 
@@ -48,9 +52,9 @@ class GameLoopTest {
     void testGameLoop() {
         gameLoop.handle(1L);
         gameLoop.handle(10);
-        Assertions.assertNotEquals(STARTING_Y+1,snake.getHeadYCoordinate());
+        Assertions.assertNotEquals(STARTING_Y + 1, snake.getBodySegment(0).getY());
         gameLoop.handle(1000000000);
-        Assertions.assertEquals(STARTING_Y+1,snake.getHeadYCoordinate());
+        Assertions.assertEquals(STARTING_Y + 1, snake.getBodySegment(0).getY());
     }
 
     @Test
@@ -59,34 +63,34 @@ class GameLoopTest {
         fruit.setPosY(STARTING_Y);
         gameLoop.handle(1L);
         gameLoop.handle(10);
-        Assertions.assertNotEquals(STARTING_LENGTH+1,snake.getSize());
+        Assertions.assertNotEquals(STARTING_LENGTH + 1, snake.getSize());
         gameLoop.handle(1000000000);
-        Assertions.assertEquals(STARTING_LENGTH+1,snake.getSize());
+        Assertions.assertEquals(STARTING_LENGTH + 1, snake.getSize());
     }
 
     @Test
     void testGameLoopWallCollision() {
-        while (snake.getHeadYCoordinate()<BOARD_HEIGHT) snake.move();
+        while (snake.getBodySegment(0).getY() < BOARD_HEIGHT) snake.move();
         gameLoop.handle(1L);
         gameLoop.handle(10);
-        Assertions.assertEquals(BOARD_HEIGHT,snake.getHeadYCoordinate());
+        Assertions.assertEquals(BOARD_HEIGHT, snake.getBodySegment(0).getY());
         gameLoop.handle(1000000000);
-        Assertions.assertNotEquals(BOARD_HEIGHT+1,snake.getHeadYCoordinate());
+        Assertions.assertNotEquals(BOARD_HEIGHT + 1, snake.getBodySegment(0).getY());
     }
 
     @Test
     void testGameLoopSnakeCollision() {
-        snake.setDirection(Direction.RIGHT);
+        snake.changeSnakeMovementState(new MovementRightState());
         snake.move();
-        snake.setDirection(Direction.DOWN);
+        snake.changeSnakeMovementState(new MovementDownState());
         snake.move();
-        snake.setDirection(Direction.LEFT);
+        snake.changeSnakeMovementState(new MovementLeftState());
         snake.move();
 
         gameLoop.handle(1L);
         gameLoop.handle(10);
-        Assertions.assertNotEquals(STARTING_X-1,snake.getHeadXCoordinate());
+        Assertions.assertNotEquals(STARTING_X - 1, snake.getBodySegment(0).getX());
         gameLoop.handle(1000000000);
-        Assertions.assertNotEquals(STARTING_X-1,snake.getHeadXCoordinate());
+        Assertions.assertNotEquals(STARTING_X - 1, snake.getBodySegment(0).getX());
     }
 }

@@ -57,4 +57,8 @@ public class Snake {
     public SnakeBody getBody() {
         return snakeBody;
     }
+
+    public SnakeMovementState getMovementState() {
+        return currentMovementState;
+    }
 }

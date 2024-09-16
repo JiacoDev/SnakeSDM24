@@ -2,7 +2,12 @@ package com.sdm;
 
 import com.sdm.snake.Direction;
 import com.sdm.snake.Snake;
+import com.sdm.snake.movement.MovementDownState;
+import com.sdm.snake.movement.MovementLeftState;
+import com.sdm.snake.movement.MovementRightState;
+import com.sdm.snake.movement.MovementUpState;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class CollisionHandlerTest {
@@ -12,18 +17,23 @@ class CollisionHandlerTest {
     private final static int STARTING_LENGTH = 10;
     private final static int BOARD_WIDTH = 64;
     private final static int BOARD_HEIGHT = 64;
+    private Snake snake;
+    private Board board;
+    private Fruit fruit;
+    @BeforeEach
+    void setUp() {
+        snake = new Snake(new Position(STARTING_X, STARTING_Y), new MovementUpState(),STARTING_LENGTH);
+        board = new Board(BOARD_WIDTH,BOARD_HEIGHT);
+        fruit = new Fruit(0,0);
+    }
 
     @Test
     void checkCollisionWithSnake() {
-        Snake snake = new Snake(STARTING_X, STARTING_Y, STARTING_LENGTH);
-        Board board = new Board(BOARD_WIDTH,BOARD_HEIGHT);
-        Fruit fruit = new Fruit(0,0);
-
-        snake.setDirection(Direction.RIGHT);
+        snake.changeSnakeMovementState(new MovementRightState());
         snake.move();
-        snake.setDirection(Direction.DOWN);
+        snake.changeSnakeMovementState(new MovementDownState());
         snake.move();
-        snake.setDirection(Direction.LEFT);
+        snake.changeSnakeMovementState(new MovementLeftState());
         snake.move();
 
         Assertions.assertEquals(GameState.SNAKE_COLLISION,CollisionHandler.checkCollision(snake,fruit,board));
@@ -31,10 +41,8 @@ class CollisionHandlerTest {
 
     @Test
     void checkCollisionWithFruit() {
-        Snake snake = new Snake(STARTING_X, STARTING_Y, STARTING_LENGTH);
-        Fruit fruit = new Fruit(STARTING_X,STARTING_Y+1);
-        Board board = new Board(BOARD_WIDTH,BOARD_HEIGHT);
-
+        fruit.setPosX(20);
+        fruit.setPosY(21);
         snake.move();
 
         Assertions.assertEquals(GameState.EAT,CollisionHandler.checkCollision(snake,fruit,board));
@@ -42,61 +50,42 @@ class CollisionHandlerTest {
 
     @Test
     void checkCollisionWithCeiling() {
-        Snake snake = new Snake(STARTING_X, STARTING_Y, STARTING_LENGTH);
-        Fruit fruit = new Fruit(STARTING_X,STARTING_Y+1);
-        Board board = new Board(BOARD_WIDTH,BOARD_HEIGHT);
-        while (snake.getHeadYCoordinate() < BOARD_HEIGHT) snake.move();
+        while (snake.getBodySegment(0).getY() < BOARD_HEIGHT) snake.move();
 
         Assertions.assertEquals(GameState.WALL_COLLISION,CollisionHandler.checkCollision(snake,fruit,board));
     }
 
     @Test
     void checkCollisionWithFloor() {
-        Snake snake = new Snake(STARTING_X, STARTING_Y, STARTING_LENGTH);
-        Fruit fruit = new Fruit(STARTING_X,STARTING_Y+1);
-        Board board = new Board(BOARD_WIDTH,BOARD_HEIGHT);
-
-        snake.setDirection(Direction.RIGHT);
+        snake.changeSnakeMovementState(new MovementRightState());
         snake.move();
-        snake.setDirection(Direction.DOWN);
+        snake.changeSnakeMovementState(new MovementDownState());
 
-        while (snake.getHeadYCoordinate() > 0) snake.move();
+        while (snake.getBodySegment(0).getY() > 0) snake.move();
 
         Assertions.assertEquals(GameState.WALL_COLLISION,CollisionHandler.checkCollision(snake,fruit,board));
     }
 
     @Test
     void checkCollisionWithLeftWall() {
-        Snake snake = new Snake(STARTING_X, STARTING_Y, STARTING_LENGTH);
-        Fruit fruit = new Fruit(STARTING_X,STARTING_Y+1);
-        Board board = new Board(BOARD_WIDTH,BOARD_HEIGHT);
+        snake.changeSnakeMovementState(new MovementLeftState());
 
-        snake.setDirection(Direction.LEFT);
-
-        while (snake.getHeadXCoordinate() > 0) snake.move();
+        while (snake.getBodySegment(0).getX() > 0) snake.move();
 
         Assertions.assertEquals(GameState.WALL_COLLISION,CollisionHandler.checkCollision(snake,fruit,board));
     }
 
     @Test
     void checkCollisionWithRightWall() {
-        Snake snake = new Snake(STARTING_X, STARTING_Y, STARTING_LENGTH);
-        Fruit fruit = new Fruit(STARTING_X,STARTING_Y+1);
-        Board board = new Board(BOARD_WIDTH,BOARD_HEIGHT);
+        snake.changeSnakeMovementState(new MovementRightState());
 
-        snake.setDirection(Direction.RIGHT);
-
-        while (snake.getHeadXCoordinate() < BOARD_WIDTH) snake.move();
+        while (snake.getBodySegment(0).getX() < BOARD_WIDTH) snake.move();
 
         Assertions.assertEquals(GameState.WALL_COLLISION,CollisionHandler.checkCollision(snake,fruit,board));
     }
 
     @Test
     void  checkNoCollision(){
-        Snake snake = new Snake(STARTING_X, STARTING_Y, STARTING_LENGTH);
-        Fruit fruit = new Fruit(STARTING_X,STARTING_Y+2);
-        Board board = new Board(BOARD_WIDTH,BOARD_HEIGHT);
-
         Assertions.assertEquals(GameState.NORMAL,CollisionHandler.checkCollision(snake,fruit,board));
     }
 
