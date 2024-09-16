@@ -6,8 +6,6 @@ import com.sdm.model.Score;
 import com.sdm.model.snake.Snake;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -50,27 +48,12 @@ public class Graphic {
 
         //--Score
 
-        Text text = new Text();
-        setDrawStyle(text);
-        text.setText("SCORE: " + score.getScore());
-        text.setY(Dimension.scale(board.height() + SPACEy + 1));
-        text.setX(Dimension.scale(SPACEx- 1));
-        text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, Dimension.scale(1)));
-        pane.getChildren().add(text);
+        pane.getChildren().add(drawText(score,board));
 
+        //--Set the game in the Nokia
 
-        // Creazione di un'immagine che funge da bordo
-        ImageView borderImage = new ImageView(new Image("file:src/main/resources/com/sdm/images/nokiaBorderV2.png")); // Percorso dell'immagine
-        borderImage.setFitWidth(Dimension.getWindow_X()); // Larghezza dell'immagine
-        borderImage.setFitHeight(Dimension.getWindow_Y()); // Altezza dell'immagine
-        //borderImage.setPreserveRatio(true); // Mantiene le proporzioni
-
-        Rectangle background = new Rectangle(Dimension.getWindow_X(), Dimension.getWindow_Y(), Color.OLIVE);
-
-        // Layout con immagine di sfondo e menu in primo piano
-        StackPane stackPane = new StackPane();
-        stackPane.getChildren().addAll(background,borderImage, pane); // L'immagine Ã¨ sotto, il menu sopra
-        StackPane.setAlignment(borderImage, Pos.CENTER); // Centrare l'immagine
+        StackPane stackPane = Nokia3310.drawNokia3310();
+        stackPane.getChildren().add(pane);
         StackPane.setAlignment(pane, Pos.CENTER); // Centrare il pane
         StackPane.setMargin(pane, new Insets(Dimension.getWindow_Y()/9 + Dimension.scale(1.5), 0, 0, Dimension.getWindow_X()/9 + Dimension.scale(1.5)));
 
@@ -96,6 +79,11 @@ public class Graphic {
     private static void setPosition(Circle circle, double x, double y){
         circle.setCenterX(Dimension.scale(x));
         circle.setCenterY(Dimension.scale(y));
+    }
+
+    private static void setPosition(Text text, double x, double y){
+        text.setX(Dimension.scale(x));
+        text.setY(Dimension.scale(y));
     }
 
     private static Rectangle drawHorizontalLine(Board board, double yPosition){
@@ -145,7 +133,7 @@ public class Graphic {
 
             setDimension(rectangle, 1, 1);
 
-            setPosition(rectangle, snake.getBody().getBodySegment(i).getX() + SPACEx - 1, (board.height() - snake.getBody().getBodySegment(i).getY())+ SPACEy - 1);
+            setPosition(rectangle, snake.getBody().getBodySegment(i).getX() + SPACEx - 1, board.height() - snake.getBody().getBodySegment(i).getY()+ SPACEy - 1);
 
             rectangle.setArcWidth(10);
             rectangle.setArcHeight(10);
@@ -153,6 +141,18 @@ public class Graphic {
             pane.getChildren().add(rectangle);
 
         }
+    }
+    public static Text drawText(Score score, Board board ){
+        Text text = new Text();
+
+        setDrawStyle(text);
+
+        text.setText("SCORE: " + score.getScore());
+        text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, Dimension.scale(1)));
+
+        setPosition(text, SPACEx-1, board.height()+SPACEy+1);
+
+        return text;
     }
 
 }
