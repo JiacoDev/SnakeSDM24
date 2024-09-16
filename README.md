@@ -8,7 +8,10 @@ The goal of the project was to create a game while applying key principles from 
 
 The project is built using Gradle.
 ## Gameplay
--------------------------------------------------- da aggiungere l'immagine
+<p align="center">
+<img src="gameImage.png" alt="gameImage" width="600" align=center>
+</p>
+
 ### Objective
 The goal of the game is to control the snake, eat food to grow, and avoid collisions with the screen edges or the snake’s own body. The longer the snake grows, the higher your score.
 
