@@ -1,6 +1,5 @@
 package com.sdm.view;
 
-import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
@@ -9,18 +8,23 @@ import javafx.scene.shape.Rectangle;
 
 public class Nokia3310 {
     public static StackPane drawNokia3310() {
-        // Creazione di un'immagine che funge da bordo
-        ImageView borderImage = new ImageView(new Image("file:src/main/resources/com/sdm/images/nokiaBorderV2.png")); // Percorso dell'immagine
-        borderImage.setFitWidth(Dimension.getWindow_X()); // Larghezza dell'immagine
-        borderImage.setFitHeight(Dimension.getWindow_Y()); // Altezza dell'immagine
-        //borderImage.setPreserveRatio(true); // Mantiene le proporzioni
+        return nokia3310Assemble();
+    }
 
-        Rectangle background = new Rectangle(Dimension.getWindow_X(), Dimension.getWindow_Y(), Color.OLIVE);
+    private static ImageView drawPhone(){
+        ImageView phone = new ImageView(new Image("file:src/main/resources/com/sdm/images/nokiaBorderV2.png")); // Percorso dell'immagine
+        phone.setFitWidth(Dimension.getWindow_X()); // Larghezza dell'immagine
+        phone.setFitHeight(Dimension.getWindow_Y()); // Altezza dell'immagine
+        return phone;
+    }
 
-        // Layout con immagine di sfondo e menu in primo piano
+    private static Rectangle drawScreen(){
+        return new Rectangle(Dimension.getWindow_X(), Dimension.getWindow_Y(), Color.OLIVE);
+    }
+
+    private static StackPane nokia3310Assemble(){
         StackPane stackPane = new StackPane();
-        stackPane.getChildren().addAll(background,borderImage); // L'immagine Ã¨ sotto, il menu sopra
-        StackPane.setAlignment(borderImage, Pos.CENTER); // Centrare l'immagine
+        stackPane.getChildren().addAll(drawScreen(),drawPhone()); // L'immagine sotto, il menu sopra
         return stackPane;
     }
 }
