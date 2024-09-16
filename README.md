@@ -3,7 +3,8 @@
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 ![JavaFX](https://img.shields.io/badge/javafx-%23FF0000.svg?style=for-the-badge&logo=javafx&logoColor=white)
 ![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white)
-![TravisCI](https://app.travis-ci.com/JiacoDev/SnakeSDM24.svg?token=XUXRd12uMpgHJqAT7Qpi&branch=master)
+![TravisCI](https://img.shields.io/badge/travis%20ci-%232B2F33.svg?style=for-the-badge&logo=travis&logoColor=white)
+![TravisCIBuildStatus](https://app.travis-ci.com/JiacoDev/SnakeSDM24.svg?token=XUXRd12uMpgHJqAT7Qpi&branch=master)
 
 ## Introduction
 
