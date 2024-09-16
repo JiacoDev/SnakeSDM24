@@ -1,3 +1,12 @@
+package com.sdm.logic;
+
+import com.sdm.model.Board;
+import com.sdm.model.Fruit;
+import com.sdm.model.Score;
+import com.sdm.model.snake.Snake;
+import com.sdm.view.Renderer;
+import javafx.animation.AnimationTimer;
+
 /**
  * The {@code GameLoop} class extends {@code AnimationTimer} and handles the core game loop logic for a Snake game.
  * This class controls the game updates, rendering, and interactions between the snake, fruit, and game board.
@@ -13,15 +22,6 @@
  *   <li>Handles game-over logic when a collision is detected.</li>
  * </ul>
  */
-package com.sdm.logic;
-
-import com.sdm.model.Board;
-import com.sdm.model.Fruit;
-import com.sdm.model.Score;
-import com.sdm.model.snake.Snake;
-
-import com.sdm.view.Renderer;
-import javafx.animation.AnimationTimer;
 
 public class GameLoop extends AnimationTimer {
     private static final int GAME_SPEED = 10;

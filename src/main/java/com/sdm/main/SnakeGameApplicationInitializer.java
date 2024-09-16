@@ -1,18 +1,3 @@
-/**
- * The {@code SnakeGameApplicationInitializer} class serves as the entry point for the Snake game application.
- * It initializes game components, sets up the game board, snake, fruit, user interface, and starts the game loop.
- * This class extends JavaFX's {@code Application} class to create a graphical window and manage user input.
- *
- * <p>This class defines the initial conditions for the snake's position, fruit location, and the game board size.
- * It handles the setup of game rendering and input control mechanisms for the player to interact with the snake.</p>
- *
- * <h3>Class Overview:</h3>
- * <ul>
- *   <li>Initializes the game board, snake, and fruit with default starting positions.</li>
- *   <li>Sets up the game window using JavaFX and adds event listeners for player input (keyboard controls).</li>
- *   <li>Starts the game loop, rendering, and the main menu.</li>
- * </ul>
- */
 package com.sdm.main;
 
 import com.sdm.logic.FruitSpawnHandler;
@@ -31,6 +16,22 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+/**
+ * The {@code SnakeGameApplicationInitializer} class serves as the entry point for the Snake game application.
+ * It initializes game components, sets up the game board, snake, fruit, user interface, and starts the game loop.
+ * This class extends JavaFX's {@code Application} class to create a graphical window and manage user input.
+ *
+ * <p>This class defines the initial conditions for the snake's position, fruit location, and the game board size.
+ * It handles the setup of game rendering and input control mechanisms for the player to interact with the snake.</p>
+ *
+ * <h3>Class Overview:</h3>
+ * <ul>
+ *   <li>Initializes the game board, snake, and fruit with default starting positions.</li>
+ *   <li>Sets up the game window using JavaFX and adds event listeners for player input (keyboard controls).</li>
+ *   <li>Starts the game loop, rendering, and the main menu.</li>
+ * </ul>
+ */
 
 public class SnakeGameApplicationInitializer extends Application {
 

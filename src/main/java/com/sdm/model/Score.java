@@ -1,3 +1,5 @@
+package com.sdm.model;
+
 /**
  * The {@code Score} class represents the player's score in the game.
  * It provides methods to modify and retrieve the score.
@@ -11,7 +13,6 @@
  *   <li>Provides methods to add points to the score and retrieve the current score.</li>
  * </ul>
  */
-package com.sdm.model;
 
 public class Score {
 

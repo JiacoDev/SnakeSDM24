@@ -1,3 +1,15 @@
+package com.sdm.view;
+
+import com.sdm.logic.GameLoop;
+import javafx.animation.AnimationTimer;
+import javafx.application.Platform;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+
 /**
  * The {@code Menu} class provides methods to create and manage the main menu of the game.
  * It includes options to start the game and exit the application.
@@ -11,17 +23,6 @@
  *   <li>Handles button actions to start the game loop or exit the application.</li>
  * </ul>
  */
-package com.sdm.view;
-
-import com.sdm.logic.GameLoop;
-import javafx.animation.AnimationTimer;
-import javafx.application.Platform;
-import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 
 public class Menu {
 

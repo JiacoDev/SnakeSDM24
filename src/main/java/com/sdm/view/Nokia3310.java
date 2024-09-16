@@ -1,3 +1,11 @@
+package com.sdm.view;
+
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
 /**
  * The {@code Nokia3310} class provides a utility for creating a visual representation
  * of a Nokia 3310 phone frame with a game screen. This class assembles and returns
@@ -14,13 +22,6 @@
  *   <li>Assembles these elements into a {@link StackPane}.</li>
  * </ul>
  */
-package com.sdm.view;
-
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 public class Nokia3310 {
 

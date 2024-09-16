@@ -1,3 +1,13 @@
+package com.sdm.logic;
+
+import com.sdm.model.Board;
+import com.sdm.model.Fruit;
+import com.sdm.model.Position;
+import com.sdm.model.snake.Snake;
+
+import java.util.Random;
+import java.util.stream.IntStream;
+
 /**
  * The {@code FruitSpawnHandler} class handles the logic for spawning and moving a fruit randomly on a game board,
  * ensuring it does not overlap with the snake's body. It utilizes a random number generator for determining the
@@ -13,15 +23,6 @@
  *   <li>Allows setting a custom random generator, primarily for testing purposes.</li>
  * </ul>
  */
-package com.sdm.logic;
-
-import com.sdm.model.Board;
-import com.sdm.model.Fruit;
-import com.sdm.model.Position;
-import com.sdm.model.snake.Snake;
-
-import java.util.Random;
-import java.util.stream.IntStream;
 
 public class FruitSpawnHandler {
     private static Random rand = new Random(System.currentTimeMillis());

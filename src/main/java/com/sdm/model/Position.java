@@ -1,3 +1,5 @@
+package com.sdm.model;
+
 /**
  * The {@code Position} class represents a 2D position in a coordinate system.
  * This class is used to define locations on a board, such as the position of
@@ -13,7 +15,6 @@
  *   <li>Provides a method to check if two positions are equal.</li>
  * </ul>
  */
-package com.sdm.model;
 
 public class Position {
     private final int x;

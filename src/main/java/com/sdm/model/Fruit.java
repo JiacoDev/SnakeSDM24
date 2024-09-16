@@ -1,3 +1,5 @@
+package com.sdm.model;
+
 /**
  * The {@code Fruit} class represents a fruit object in the game. It has a position
  * on the game board where it is located. This class allows for the retrieval and
@@ -11,7 +13,6 @@
  *   <li>Provides methods to get and set the fruit's position.</li>
  * </ul>
  */
-package com.sdm.model;
 
 public class Fruit {
     private Position position;

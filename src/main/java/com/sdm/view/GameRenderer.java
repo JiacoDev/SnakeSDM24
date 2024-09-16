@@ -1,3 +1,11 @@
+package com.sdm.view;
+
+import com.sdm.model.Board;
+import com.sdm.model.Fruit;
+import com.sdm.model.Score;
+import com.sdm.model.snake.Snake;
+import javafx.scene.Scene;
+
 /**
  * The {@code GameRenderer} class is responsible for rendering the game elements and displaying the game over screen.
  * It implements the {@code Renderer} interface and provides methods to update the visual representation of the game.
@@ -11,13 +19,6 @@
  *   <li>Displays the game over screen when the game ends.</li>
  * </ul>
  */
-package com.sdm.view;
-
-import com.sdm.model.Board;
-import com.sdm.model.Fruit;
-import com.sdm.model.Score;
-import com.sdm.model.snake.Snake;
-import javafx.scene.Scene;
 
 public class GameRenderer implements Renderer {
 

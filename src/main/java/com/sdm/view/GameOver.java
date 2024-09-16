@@ -1,3 +1,14 @@
+package com.sdm.view;
+
+import com.sdm.model.Score;
+import javafx.application.Platform;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+
 /**
  * The {@code GameOver} class provides functionality to create and display a game over scene.
  * This scene includes a message indicating the game has ended, the final score, and an exit button.
@@ -11,16 +22,6 @@
  *   <li>Includes a message, final score display, and an exit button.</li>
  * </ul>
  */
-package com.sdm.view;
-
-import com.sdm.model.Score;
-import javafx.application.Platform;
-import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 
 public class GameOver {
 

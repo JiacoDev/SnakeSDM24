@@ -1,3 +1,5 @@
+package com.sdm.view;
+
 /**
  * The {@code Dimension} class is responsible for managing the dimensions of the game board and scaling those dimensions
  * to determine the size of the game window. This class also defines the size of each square unit used for rendering
@@ -14,7 +16,6 @@
  *   <li>Provides a method to set the board's initial dimensions.</li>
  * </ul>
  */
-package com.sdm.view;
 
 public class Dimension {
     private static int boardStartingWidth;

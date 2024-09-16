@@ -1,18 +1,3 @@
-/**
- * The {@code Graphic} class provides methods to render the game elements on the screen using JavaFX.
- * It includes methods to draw the game board, snake, fruit, and score, as well as handle the layout of these elements.
- *
- * <p>This class is responsible for creating the visual representation of the game by drawing various components on
- * a {@code Pane} and setting their styles and positions. The rendered elements are then added to a {@code StackPane}
- * which can be displayed as part of the game scene.</p>
- *
- * <h3>Class Overview:</h3>
- * <ul>
- *   <li>Draws the game board, including its boundaries.</li>
- *   <li>Draws the snake, fruit, and current score.</li>
- *   <li>Handles positioning and styling of graphical elements.</li>
- * </ul>
- */
 package com.sdm.view;
 
 import com.sdm.model.Board;
@@ -31,6 +16,22 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+
+/**
+ * The {@code Graphic} class provides methods to render the game elements on the screen using JavaFX.
+ * It includes methods to draw the game board, snake, fruit, and score, as well as handle the layout of these elements.
+ *
+ * <p>This class is responsible for creating the visual representation of the game by drawing various components on
+ * a {@code Pane} and setting their styles and positions. The rendered elements are then added to a {@code StackPane}
+ * which can be displayed as part of the game scene.</p>
+ *
+ * <h3>Class Overview:</h3>
+ * <ul>
+ *   <li>Draws the game board, including its boundaries.</li>
+ *   <li>Draws the snake, fruit, and current score.</li>
+ *   <li>Handles positioning and styling of graphical elements.</li>
+ * </ul>
+ */
 
 public class Graphic {
     final static double HORIZONTAL_GAP = 2;

@@ -1,3 +1,13 @@
+package com.sdm.logic;
+
+import com.sdm.model.snake.Snake;
+import com.sdm.model.snake.movement.MovementDownState;
+import com.sdm.model.snake.movement.MovementLeftState;
+import com.sdm.model.snake.movement.MovementRightState;
+import com.sdm.model.snake.movement.MovementUpState;
+import javafx.event.EventHandler;
+import javafx.scene.input.KeyEvent;
+
 /**
  * The {@code SnakeDirectionInputHandler} class is responsible for handling keyboard input to change the direction of the snake's movement.
  * This class implements {@code EventHandler<KeyEvent>} and listens for specific key presses (W, A, S, D) to modify the snake's movement state.
@@ -11,15 +21,6 @@
  *   <li>Uses the {@code Snake} object's movement state to change the snake's movement based on key events.</li>
  * </ul>
  */
-package com.sdm.logic;
-
-import com.sdm.model.snake.Snake;
-import com.sdm.model.snake.movement.MovementDownState;
-import com.sdm.model.snake.movement.MovementLeftState;
-import com.sdm.model.snake.movement.MovementRightState;
-import com.sdm.model.snake.movement.MovementUpState;
-import javafx.event.EventHandler;
-import javafx.scene.input.KeyEvent;
 
 public class SnakeDirectionInputHandler implements EventHandler<KeyEvent> {
     private final Snake snake;
