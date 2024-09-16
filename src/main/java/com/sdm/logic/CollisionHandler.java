@@ -59,7 +59,7 @@ public class CollisionHandler {
      * @return true if the snake has collided with the fruit, false otherwise
      */
     private static boolean checkCollisionWithFruit(Snake snake, Fruit fruit) {
-        return snake.getBody().getHead().getX() == fruit.getPosition().getX() && snake.getBody().getHead().getY() == fruit.getPosition().getY();
+        return snake.getBodySegment(0).equals(fruit.getPosition());
     }
 
     /**
@@ -70,7 +70,7 @@ public class CollisionHandler {
      * @return true if the snake has collided with a wall, false otherwise
      */
     private static boolean checkCollisionWithWall(Snake snake, Board board) {
-        return snake.getBody().getHead().getX() == board.width() || snake.getBody().getHead().getX() == 0 || snake.getBody().getHead().getY() == board.height() || snake.getBody().getHead().getY() == 0;
+        return snake.getBodySegment(0).getX() == board.width() || snake.getBodySegment(0).getX() == 0 || snake.getBodySegment(0).getY() == board.height() || snake.getBodySegment(0).getY() == 0;
     }
 }
 
