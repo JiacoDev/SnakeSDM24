@@ -1,11 +1,12 @@
 package com.sdm.logic;
 
-import com.sdm.view.DrawHandler;
+import com.sdm.view.GameRenderer;
 import com.sdm.model.Board;
 import com.sdm.model.Fruit;
 import com.sdm.model.Score;
 import com.sdm.model.snake.Snake;
 
+import com.sdm.view.Renderer;
 import javafx.animation.AnimationTimer;
 
 public class GameLoop extends AnimationTimer {
@@ -17,14 +18,14 @@ public class GameLoop extends AnimationTimer {
     private final Score score = new Score();
     private long lastUpdateTime = 0;
     private double totalGameTime = 0;
-    private final DrawHandler drawHandler;
+    private final Renderer gameRenderer;
     boolean gameOver = false;
 
-    public GameLoop(Snake initSnake, Board initBoard, Fruit initFruit, DrawHandler initDrawHandler) {
+    public GameLoop(Snake initSnake, Board initBoard, Fruit initFruit, Renderer initGameRenderer) {
         snake = initSnake;
         board = initBoard;
         fruit = initFruit;
-        drawHandler = initDrawHandler;
+        gameRenderer = initGameRenderer;
 
     }
 
@@ -44,10 +45,10 @@ public class GameLoop extends AnimationTimer {
     }
 
     private void drawGame() {
-        drawHandler.draw(snake, fruit, board, score);
+        gameRenderer.draw(snake, fruit, board, score);
         if(gameOver) {
             stop();
-            drawHandler.drawGameOver(score);
+            gameRenderer.drawGameOver(score);
         }
     }
 

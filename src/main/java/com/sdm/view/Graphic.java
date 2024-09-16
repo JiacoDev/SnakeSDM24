@@ -125,7 +125,7 @@ public class Graphic {
     private static void drawSnake(Snake snake, Board board, Pane pane){
         Rectangle rectangle;
 
-        for(int i = 0; i < snake.getBody().getSize(); i++){
+        for(int i = 0; i < snake.getSize(); i++){
 
             rectangle = new Rectangle();
 
@@ -133,7 +133,7 @@ public class Graphic {
 
             setDimension(rectangle, 1, 1);
 
-            setPosition(rectangle, snake.getBody().getBodySegment(i).getX() + SPACEx - 1, board.height() - snake.getBody().getBodySegment(i).getY()+ SPACEy - 1);
+            setPosition(rectangle, snake.getBodySegment(i).getX() + SPACEx - 1, board.height() - snake.getBodySegment(i).getY()+ SPACEy - 1);
 
             rectangle.setArcWidth(10);
             rectangle.setArcHeight(10);

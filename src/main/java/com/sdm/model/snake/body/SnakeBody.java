@@ -26,9 +26,7 @@ public class SnakeBody {
     }
 
     public void removeLastBodySegment() {
-        if (bodySegments.size() > 1) {
-            bodySegments.removeLast();
-        }
+        bodySegments.removeLast();
     }
 
     public Position getHead() {
