@@ -32,9 +32,11 @@ public class SnakeGameApplicationInitializer extends Application {
         Dimension dim = new Dimension();
 
         Snake startSnake = new Snake(new Position(snakeStartingXCoordinate,snakeStartingYCoordinate), new MovementUpState(), snakeStartingLength);
-        Board startBoard = new Board(dim.getBoardStartingWidth(), dim.getBoardStartingHeight());
+        Board startBoard = new Board(32, 32);
         Fruit startFruit = new Fruit(new Position(fruitStartingXCoordinate,fruitStartingYCoordinate));
         FruitSpawnHandler.randomFruitMove(startSnake, startFruit, startBoard);
+
+        Dimension.setDimension(startBoard.width(), startBoard.height());
 
         Scene scene = new Scene(new Pane(), dim.getWindow_X(), dim.getWindow_Y());
         stage.setTitle("SNAKE!");

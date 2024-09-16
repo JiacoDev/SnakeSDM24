@@ -3,27 +3,22 @@ package com.sdm.view;
 public class Dimension {
 
 
-    private final int boardStartingWidth = 32;
-    private final int boardStartingHeight = 32;
-    private final int dim = 15;
+    private static int boardStartingWidth;
+    private static int boardStartingHeight;
+    private static final int squareDimension = 15;
 
-    public Dimension() {
+    public static double getWindow_X() {
+        return (((boardStartingWidth + 2 + Graphic.SPACEx * 2) / 7) * 9) * squareDimension;
     }
-
-    public double getWindow_X() {
-        return (((boardStartingWidth + 2 + Graphic.SPACEx * 2) / 7) * 9) * dim;
+    public static double getWindow_Y() {
+        return ((((boardStartingHeight + 2 + Graphic.SPACEy * 2) / 5) * 9)) * squareDimension;
     }
-    public double getWindow_Y() {
-        return ((((boardStartingHeight + 2 + Graphic.SPACEy * 2) / 5) * 9)) * dim;
+    public static int getSquareDimension() {
+        return squareDimension;
     }
-    public int getBoardStartingWidth() {
-        return boardStartingWidth;
-    }
-    public int getBoardStartingHeight() {
-        return boardStartingHeight;
-    }
-    public int getDim() {
-        return dim;
+    public static void setDimension(int width, int height){
+        boardStartingWidth = width;
+        boardStartingHeight = height;
     }
 
 }
