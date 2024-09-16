@@ -48,7 +48,7 @@ public class Menu {
      * @return a {@code Button} for starting the game
      */
     private static Button drawPlayButton(AnimationTimer gameLoop) {
-        Button playButton = new Button("Game");
+        Button playButton = new Button("Play");
         playButton.setStyle(getButtonStyle());
         playButton.setOnAction(r -> handlePlayButtonClick(gameLoop));
         return playButton;
