@@ -50,11 +50,6 @@ public class Snake {
         return snakeBody.getSize();
     }
 
-    //temp func for collision
-    public SnakeBody getBody() {
-        return snakeBody;
-    }
-
     public SnakeMovementState getMovementState() {
         return currentMovementState;
     }

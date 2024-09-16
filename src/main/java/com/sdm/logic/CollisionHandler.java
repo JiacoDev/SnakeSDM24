@@ -41,7 +41,7 @@ public class CollisionHandler {
     private static boolean checkCollisionWithSnake(Snake snake) {
         Position snakeHeadPosition = snake.getBodySegment(0);
 
-        for (int i = 1; i < snake.getBody().getSize(); i++) {
+        for (int i = 1; i < snake.getSize(); i++) {
             Position snakeBodySegmentPosition = snake.getBodySegment(i);
 
             if (snakeHeadPosition.equals(snakeBodySegmentPosition)) {

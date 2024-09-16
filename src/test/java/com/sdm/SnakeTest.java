@@ -134,7 +134,7 @@ public class SnakeTest {
     void checkCantRemoveHead() {
         snake = new Snake(STARTING_POSITION, new MovementUpState(), 1);
         Assertions.assertEquals(1, snake.getSize());
-        snake.getBody().removeLastBodySegment();
+        snake.move();
         Assertions.assertEquals(1, snake.getSize());
     }
 
