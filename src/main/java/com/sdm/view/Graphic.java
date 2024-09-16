@@ -30,32 +30,23 @@ public class Graphic {
     public static Pane draw(Snake snake, Fruit fruit, Board board, Score score) {
         Pane pane = new Pane();
 
-
-        Rectangle rectangle = new Rectangle();
-
         //board limits
 
-        pane.getChildren().add(drawVerticalLine(rectangle, board, 0));
+        pane.getChildren().add(drawVerticalLine(board, 0));
 
-        pane.getChildren().add(drawVerticalLine(rectangle, board, board.width()));
+        pane.getChildren().add(drawVerticalLine(board, board.width()));
 
-        pane.getChildren().add(drawHorizontalLine(rectangle, board, 0));
+        pane.getChildren().add(drawHorizontalLine(board, 0));
 
-        pane.getChildren().add(drawHorizontalLine(rectangle, board, board.height()));
+        pane.getChildren().add(drawHorizontalLine(board, board.height()));
 
         //--Fruit
 
-        Circle circle = new Circle();
-
-        setDrawStyle(circle);
-        circle.setRadius((double) Dimension.getSquareDimension() /3);
-        circle.setCenterX((fruit.getPosition().getX() + SPACEx)*Dimension.getSquareDimension() - ((double) Dimension.getSquareDimension() /2));
-        circle.setCenterY((board.height() - fruit.getPosition().getY() + SPACEy)*Dimension.getSquareDimension() + ((double) Dimension.getSquareDimension() /2) - Dimension.getSquareDimension());
-
-
-        pane.getChildren().add(circle);
+        pane.getChildren().add(drawFruit(fruit,board));
 
         //---Snake
+
+        Rectangle rectangle;
 
         for(int i = 0; i < snake.getBody().getSize(); i++){
             rectangle = new Rectangle();
@@ -105,9 +96,9 @@ public class Graphic {
         shape.setOpacity(opacity);
     }
 
-    private static Rectangle drawHorizontalLine(Rectangle rectangle, Board board, double yPosition){
+    private static Rectangle drawHorizontalLine(Board board, double yPosition){
 
-        rectangle = new Rectangle();
+        Rectangle rectangle = new Rectangle();
         setDrawStyle(rectangle);
 
         rectangle.setWidth((board.width()-1)*Dimension.getSquareDimension());
@@ -117,9 +108,9 @@ public class Graphic {
 
         return rectangle;
     }
-    private static Rectangle drawVerticalLine(Rectangle rectangle, Board board, double xPosition){
+    private static Rectangle drawVerticalLine(Board board, double xPosition){
 
-        rectangle = new Rectangle();
+        Rectangle rectangle = new Rectangle();
         setDrawStyle(rectangle);
 
         rectangle.setWidth(Dimension.getSquareDimension());
@@ -128,6 +119,18 @@ public class Graphic {
         rectangle.setY((SPACEy - 1)*Dimension.getSquareDimension());
         
         return rectangle;
+    }
+    private static Circle drawFruit(Fruit fruit , Board board){
+
+        Circle circle = new Circle();
+
+        setDrawStyle(circle);
+
+        circle.setRadius((double) Dimension.getSquareDimension() /3);
+        circle.setCenterX((fruit.getPosition().getX() + SPACEx)*Dimension.getSquareDimension() - ((double) Dimension.getSquareDimension() /2));
+        circle.setCenterY((board.height() - fruit.getPosition().getY() + SPACEy)*Dimension.getSquareDimension() + ((double) Dimension.getSquareDimension() /2) - Dimension.getSquareDimension());
+
+        return circle;
     }
 
 }
